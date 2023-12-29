@@ -1,34 +1,21 @@
 {
-  "devDependencies": {
-    "@babel/core": "^7.23.6",
-    "@babel/eslint-parser": "^7.23.3",
-    "@babel/preset-env": "^7.23.6",
-    "@babel/preset-react": "^7.23.3",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "eslint-plugin-next": "^0.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1"
-  },
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "jest",
-    "start": "node index.js",
-    "pre-commit": "npx prettier --write \"**/*.{js,jsx,ts,tsx}\" && npx eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.0.4"
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
+    "next": "14.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
