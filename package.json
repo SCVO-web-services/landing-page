@@ -18,6 +18,13 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "eslint-plugin-next": "^0.0.0",
     "husky": "^8.0.3"
-  }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "\"C:/Program Files/nodejs/npx.cmd\" prettier --write \"**/*.{js,jsx,ts,tsx}\" && \"C:/Program Files/nodejs/npx.cmd\" eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
+    }
+  }}
 }
