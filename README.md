@@ -1,6 +1,53 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+
+
+## Requirements
+
+### Automatic installation
+You need to run.
+```bash
+npm ci
+```
+This ensures that you use the exact dependencies.
+
+### Manual installation
+To run this project, you will need:
+
+- [Node.js](https://nodejs.org/en/) version 21.5.0 or higher.
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/).
+
+After cloning the project, you will need to install the project's dependencies. Navigate to the project's directory and run the following command:
+
+```bash
+npm install
+```
+
+This project uses the following key dependencies:
+
+- [Next.js](https://nextjs.org/) - The React Framework for Production.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [React DOM](https://reactjs.org/docs/react-dom.html) - Serves as the entry point to the DOM and server renderers for React.
+- [ESLint](https://eslint.org/) - A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript.
+- [Prettier](https://prettier.io/) - An opinionated code formatter.
+- [Jest](https://jestjs.io/) - A delightful JavaScript Testing Framework with a focus on simplicity.
+
+To ensure code quality, this project uses [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting. Make sure to run the linter and formatter before committing:
+
+```bash
+npm run lint
+npm run pre-commit
+```
+
+To run the tests, use the following command:
+
+```bash
+npm test
+```
+
 ## Getting Started
+
 
 First, run the development server:
 
