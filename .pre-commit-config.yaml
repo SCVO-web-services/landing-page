@@ -1,12 +1,12 @@
 repos:
   - repo: https://github.com/prettier/prettier
-    rev: '^3.1.1'  # Use the ref you want to point at
+    rev: '^3.1.1' # Use the ref you want to point at
     hooks:
       - id: prettier
         files: '\.(js|jsx|ts|tsx)$'
         args: ['--write']
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: '^8.56.0'  # Use the ref you want to point at
+    rev: '^8.56.0' # Use the ref you want to point at
     hooks:
       - id: eslint
         files: '\.(js|jsx|ts|tsx)$'
