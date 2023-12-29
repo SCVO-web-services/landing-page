@@ -42,6 +42,10 @@ Este proyecto utiliza las siguientes dependencias clave:
 Para asegurar la calidad del código, este proyecto utiliza [ESLint](https://eslint.org/) para el linting y [Prettier](https://prettier.io/) para el formateo del código. Asegúrate de ejecutar el linter y el formateador antes de hacer commit:
 
 ```bash
+# Correr estos dos para asegurar el ci/lint
+npx prettier --write .
+npx prettier --check .
+# o solo:
 npm run lint
 npm run pre-commit
 ```

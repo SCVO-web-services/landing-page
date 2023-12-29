@@ -39,6 +39,10 @@ This project uses the following key dependencies:
 To ensure code quality, this project uses [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting. Make sure to run the linter and formatter before committing:
 
 ```bash
+# Run these two to have a succesful ci/lint
+npx prettier --write .
+npx prettier --check .
+# or just
 npm run lint
 npm run pre-commit
 ```
