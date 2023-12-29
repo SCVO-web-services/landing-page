@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "lint": "eslint \"{components,pages,shared,src,apps,libs,test}/**/*.ts*\" --fix"
   },
   "dependencies": {
     "eslint": "8.56.0",
