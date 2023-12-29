@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --passWithNoTests",
-    "lint": "eslint \"{components,pages,shared,src,apps,libs,test}/**/*.ts*\" --fix"
+    "lint": "eslint \"{components,pages,shared,src,apps,libs,test}/**/*.js*\" --fix"
   },
   "dependencies": {
     "eslint": "8.56.0",
