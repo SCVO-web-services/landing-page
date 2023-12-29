@@ -26,5 +26,5 @@
     "hooks": {
       "pre-commit": "\"C:/Program Files/nodejs/npx.cmd\" prettier --write \"**/*.{js,jsx,ts,tsx}\" && \"C:/Program Files/nodejs/npx.cmd\" eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
     }
-  }}
+  }
 }
