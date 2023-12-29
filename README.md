@@ -1,9 +1,17 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-
+- - -
 
 ## Requirements
+
+
+To run this project, you will need:
+
+- [Node.js](https://nodejs.org/en/) version 21.5.0 or higher.
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/).
+
+After cloning the project, you will need to install the project's dependencies. Navigate to the project's directory and run the following command:
 
 ### Automatic installation
 You need to run.
@@ -13,12 +21,6 @@ npm ci
 This ensures that you use the exact dependencies.
 
 ### Manual installation
-To run this project, you will need:
-
-- [Node.js](https://nodejs.org/en/) version 21.5.0 or higher.
-- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/).
-
-After cloning the project, you will need to install the project's dependencies. Navigate to the project's directory and run the following command:
 
 ```bash
 npm install
@@ -45,7 +47,7 @@ To run the tests, use the following command:
 ```bash
 npm test
 ```
-
+- - -
 ## Getting Started
 
 
@@ -68,7 +70,25 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- - -
+## Contributing
 
+### How to Submit a Contribution
+
+1. Create a branch. Name it properly with "Git branching Naming Convention" standarts if possible. e.g.:<br>
+`feat/name`: A new feature <br>
+`fix/name`: A bug fix <br>
+`dox/name`: Changes to documentation<br>
+`style/name`: Changes that do no affec code (formatting)<br>
+`refactor/name`: For any refactoring.<br>
+`test/`: Adding missing test or correcting existing tests<br>
+2. Make your changes in your branch. Use [simplified commit convention](https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4)
+3. Test your changes to ensure they don't break anything.
+4. Submit a pull request with your changes.
+
+### How to accept contributions.
+All code must be reviewed and accepted by atleast 2 participants before merging in `master`
+- - -
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
