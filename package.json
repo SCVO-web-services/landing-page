@@ -7,11 +7,9 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --passWithNoTests",
-    "lint": "eslint \"{components,pages,shared,src,apps,libs,test}/**/*.js*\" --fix"
+    "lint": "next lint"
   },
   "dependencies": {
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.0.4",
     "next": "14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -20,10 +18,12 @@
     "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
-    "eslint-plugin-next": "^0.0.0",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
-    "lint-staged": "^15.2.0"
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1"
   },
   "lint-staged": {
     "*.ts": "eslint --cache",

@@ -3,7 +3,7 @@
     <h4 align="center"> <a href="/docs/README(EN).md">Click here for the English version </a></h4>
 </p>
 
-- - -
+---
 
 ## Requisitos
 
@@ -15,10 +15,13 @@ Para ejecutar este proyecto, necesitarás:
 Después de clonar el proyecto, necesitarás instalar las dependencias del proyecto. Navega al directorio del proyecto y ejecuta el siguiente comando:
 
 ### Instalación automática
+
 Necesitas ejecutar.
+
 ```bash
 npm ci
 ```
+
 Esto asegura que uses las dependencias exactas.
 
 ### Instalación manual
@@ -48,7 +51,9 @@ Para ejecutar las pruebas, usa el siguiente comando:
 ```bash
 npm test
 ```
-- - -
+
+---
+
 ## Empezando
 
 Primero, ejecuta el servidor de desarrollo:
@@ -70,7 +75,9 @@ Las [rutas de la API](https://nextjs.org/docs/api-routes/introduction) se pueden
 El directorio `pages/api` está mapeado a `/api/*`. Los archivos en este directorio se tratan como [rutas de la API](https://nextjs.org/docs/api-routes/introduction) en lugar de páginas de React.
 
 Este proyecto utiliza [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para optimizar y cargar automáticamente Inter, una fuente personalizada de Google.
-- - -
+
+---
+
 ## Contribuyendo
 
 ### Cómo enviar una contribución
@@ -87,8 +94,11 @@ Este proyecto utiliza [`next/font`](https://nextjs.org/docs/basic-features/font-
 4. Envía una solicitud de extracción con tus cambios.
 
 ### Cómo aceptar contribuciones.
+
 Todo el código debe ser revisado y aceptado por al menos 2 participantes antes de fusionarse en `master`
-- - -
+
+---
+
 ## Aprende más
 
 Para aprender más sobre Next.js, echa un vistazo a los siguientes recursos:
