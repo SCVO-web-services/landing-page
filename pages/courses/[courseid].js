@@ -1,10 +1,8 @@
-function Courses() {
-  return (
-    <>
-      <h2>Course 1</h2>
-      <h2>Course 2</h2>
-      <h2>Course 3</h2>
-    </>
-  );
+import { useRouter } from 'next/router';
+
+function CoursesDetail() {
+  const router = useRouter();
+  const productID = router.query.courseid;
+  return <h1>Details about product {productID}</h1>;
 }
-export default Courses;
+export default CoursesDetail;
