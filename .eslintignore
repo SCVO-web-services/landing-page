@@ -1,0 +1,14 @@
+# .eslintignore
+
+# Ignore next.config.js
+next.config.js
+postcss.config.js
+
+# Ignore all JavaScript files in the node_modules directory
+node_modules/**/*.js
+
+# Ignore all JavaScript files in the build directory
+build/**/*.js
+
+# Ignore all JavaScript files in the .next directory (Next.js build output)
+.next/**/*.js
