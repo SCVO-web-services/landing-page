@@ -7,35 +7,27 @@ import {
   Button,
 } from '@nextui-org/react';
 
+// Mejoras en el componente IndexPage
 export default function IndexPage() {
-  // @ts-expect-error la clase container da un error ladilla, que luego buscaré como arreglar
   return (
     <>
-      <div class="container mx-auto">
+      <div className="container mx-auto">
         <Navbar position="static">
           <NavbarBrand>
             <p className="font-bold text-inherit">SCVO</p>
           </NavbarBrand>
           <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
             <NavbarItem isActive>
-              <Link href="#" aria-current={'page'}>
-                <a>Organigrama</a>
-              </Link>
+              <Link href="#">Organigrama</Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#" aria-current={'page'}>
-                <a>Memorial</a>
-              </Link>
+              <Link href="#">Memorial</Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#" aria-current={'page'}>
-                <a>Cursos</a>
-              </Link>
+              <Link href="#">Cursos</Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#" aria-current={'page'}>
-                <a>Organigrama</a>
-              </Link>
+              <Link href="#">Organigrama</Link>
             </NavbarItem>
           </NavbarContent>
           <NavbarContent justify="end">
@@ -49,23 +41,14 @@ export default function IndexPage() {
             </NavbarItem>
           </NavbarContent>
         </Navbar>
-        {/*Aqui cambiamos el link por alguna imagen de SCVO*/}
+        {/* Imagen representativa */}
         <div
           className="flex items-center justify-center h-[500px] bg-cover"
-          style={{
-            backgroundImage:
-              'url(https://littlevisuals.co/images/flying_high.jpg)',
-          }}
+          style={{ backgroundImage: 'url(https://littlevisuals.co/images/flying_high.jpg)' }}
         >
           <div className="w-full sm:w-1/2 flex flex-col items-center">
             <div className="text-center">
-              <p className="font-bold text-6xl">La plataforma</p>
-            </div>
-            <div className="text-center">
-              <p className="font-bold text-6xl">médica</p>
-            </div>
-            <div className="text-center mb-7">
-              <p className="font-bold text-6xl">educativa</p>
+              <p className="font-bold text-6xl">La plataforma médica educativa</p>
             </div>
             <Button
               size="md"
