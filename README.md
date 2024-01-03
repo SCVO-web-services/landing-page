@@ -1,52 +1,49 @@
-<p align="center">
-    <h1 align="center"/> Landing page SCVO </h1>
-    <h4 align="center"> <a href="/docs/README(EN).md">Click here for the English version </a></h4>
-</p>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ---
 
-## Requisitos
+## Requirements
 
-Para ejecutar este proyecto, necesitarás:
+To run this project, you will need:
 
-- [Node.js](https://nodejs.org/en/) versión 21.5.0 o superior.
-- [npm](https://www.npmjs.com/) (viene con Node.js) o [Yarn](https://yarnpkg.com/).
+- [Node.js](https://nodejs.org/en/) version 21.5.0 or higher.
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/).
 
-Después de clonar el proyecto, necesitarás instalar las dependencias del proyecto. Navega al directorio del proyecto y ejecuta el siguiente comando:
+After cloning the project, you will need to install the project's dependencies. Navigate to the project's directory and run the following command:
 
-### Instalación automática
+### Automatic installation
 
-Necesitas ejecutar.
+You need to run.
 
 ```bash
 npm ci
 ```
 
-Esto asegura que uses las dependencias exactas.
+This ensures that you use the exact dependencies.
 
-### Instalación manual
+### Manual installation
 
 ```bash
 npm install
 ```
 
-Este proyecto utiliza las siguientes dependencias clave:
+This project uses the following key dependencies:
 
-- [Next.js](https://nextjs.org/) - El marco de React para producción.
-- [React](https://reactjs.org/) - Una biblioteca de JavaScript para construir interfaces de usuario.
-- [React DOM](https://reactjs.org/docs/react-dom.html) - Sirve como el punto de entrada a los renderizadores del DOM y del servidor para React.
-- [ESLint](https://eslint.org/) - Una herramienta de linting configurable y enchufable para identificar e informar sobre patrones en JavaScript.
-- [Prettier](https://prettier.io/) - Un formateador de código con opiniones.
-- [Jest](https://jestjs.io/) - Un marco de pruebas de JavaScript con un enfoque en la simplicidad.
+- [Next.js](https://nextjs.org/) - The React Framework for Production.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [React DOM](https://reactjs.org/docs/react-dom.html) - Serves as the entry point to the DOM and server renderers for React.
+- [ESLint](https://eslint.org/) - A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript.
+- [Prettier](https://prettier.io/) - An opinionated code formatter.
+- [Jest](https://jestjs.io/) - A delightful JavaScript Testing Framework with a focus on simplicity.
 
-Para asegurar la calidad del código, este proyecto utiliza [ESLint](https://eslint.org/) para el linting y [Prettier](https://prettier.io/) para el formateo del código. Asegúrate de ejecutar el linter y el formateador antes de hacer commit:
+To ensure code quality, this project uses [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting. Make sure to run the linter and formatter before committing:
 
 ```bash
 npm run lint
 npm run pre-commit
 ```
 
-Para ejecutar las pruebas, usa el siguiente comando:
+To run the tests, use the following command:
 
 ```bash
 npm test
@@ -54,62 +51,62 @@ npm test
 
 ---
 
-## Empezando
+## Getting Started
 
-Primero, ejecuta el servidor de desarrollo:
+First, run the development server:
 
 ```bash
 npm run dev
-# o
+# or
 yarn dev
-# o
+# or
 pnpm dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Puedes empezar a editar la página modificando `pages/index.js`. La página se actualiza automáticamente a medida que editas el archivo.
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-Las [rutas de la API](https://nextjs.org/docs/api-routes/introduction) se pueden acceder en [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Este endpoint se puede editar en `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-El directorio `pages/api` está mapeado a `/api/*`. Los archivos en este directorio se tratan como [rutas de la API](https://nextjs.org/docs/api-routes/introduction) en lugar de páginas de React.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-Este proyecto utiliza [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para optimizar y cargar automáticamente Inter, una fuente personalizada de Google.
-
----
-
-## Contribuyendo
-
-### Cómo enviar una contribución
-
-1. Crea una rama. Nómbrala correctamente con los estándares de "Convención de nombres de ramas de Git" si es posible. Por ejemplo:<br>
-   `feat/nombre`: Una nueva característica <br>
-   `fix/nombre`: Una corrección de error <br>
-   `dox/nombre`: Cambios en la documentación<br>
-   `style/nombre`: Cambios que no afectan al código (formateo)<br>
-   `refactor/nombre`: Para cualquier refactorización.<br>
-   `test/`: Añadir pruebas faltantes o corregir pruebas existentes<br>
-2. Haz tus cambios en tu rama. Usa la [convención simplificada de commit](https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4)
-3. Prueba tus cambios para asegurarte de que no rompen nada.
-4. Envía una solicitud de extracción con tus cambios.
-
-### Cómo aceptar contribuciones.
-
-Todo el código debe ser revisado y aceptado por al menos 2 participantes antes de fusionarse en `master`
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ---
 
-## Aprende más
+## Contributing
 
-Para aprender más sobre Next.js, echa un vistazo a los siguientes recursos:
+### How to Submit a Contribution
 
-- [Documentación de Next.js](https://nextjs.org/docs) - aprende sobre las características y la API de Next.js.
-- [Aprende Next.js](https://nextjs.org/learn) - un tutorial interactivo de Next.js.
+1. Create a branch. Name it properly with "Git branching Naming Convention" standarts if possible. e.g.:<br>
+   `feat/name`: A new feature <br>
+   `fix/name`: A bug fix <br>
+   `dox/name`: Changes to documentation<br>
+   `style/name`: Changes that do no affec code (formatting)<br>
+   `refactor/name`: For any refactoring.<br>
+   `test/`: Adding missing test or correcting existing tests<br>
+2. Make your changes in your branch. Use [simplified commit convention](https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4)
+3. Test your changes to ensure they don't break anything.
+4. Submit a pull request with your changes.
 
-Puedes echar un vistazo al [repositorio de GitHub de Next.js](https://github.com/vercel/next.js/) - ¡tus comentarios y contribuciones son bienvenidos!
+### How to accept contributions.
 
-## Despliegue en Vercel
+All code must be reviewed and accepted by atleast 2 participants before merging in `master`
 
-La forma más fácil de desplegar tu aplicación Next.js es utilizar la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
+---
 
-Consulta nuestra [documentación de despliegue de Next.js](https://nextjs.org/docs/deployment) para más detalles.
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
