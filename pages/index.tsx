@@ -8,12 +8,10 @@ import {
 } from '@nextui-org/react';
 import InfoCard from '../components/infoCard';
 
-// @ts-ignore
 export default function IndexPage() {
-  // @ts-expect-error la clase container da un error ladilla, que luego buscaré como arreglar
   return (
-    <>
-      <div class="container mx-auto">
+    <div>
+      <div className="container mx-auto">
         <Navbar position="static">
           <NavbarBrand>
             <p className="font-bold text-inherit">SCVO</p>
@@ -80,7 +78,7 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
-      <div class="container mx-auto">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           <div className="col-span-1 sm:col-span-1">
             <InfoCard
@@ -108,6 +106,6 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
