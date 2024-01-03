@@ -6,7 +6,9 @@ import {
   Link,
   Button,
 } from '@nextui-org/react';
+import InfoCard from '../components/infoCard';
 
+// @ts-ignore
 export default function IndexPage() {
   // @ts-expect-error la clase container da un error ladilla, que luego buscaré como arreglar
   return (
@@ -75,6 +77,34 @@ export default function IndexPage() {
             >
               Join For Free
             </Button>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div className="col-span-1 sm:col-span-1">
+            <InfoCard
+              label="Course"
+              title="Obesidad en Venezuela"
+              imageURL="https://littlevisuals.co/images/red_dawn.jpg"
+              studentCount="3,500"
+            />
+          </div>
+          <div className="col-span-1 sm:col-span-1">
+            <InfoCard
+              label="Course"
+              title="Peligros de la obesidad"
+              imageURL="https://littlevisuals.co/images/sunset.jpg"
+              studentCount="1,000"
+            />
+          </div>
+          <div className="col-span-1 sm:col-span-1">
+            <InfoCard
+              label="Course"
+              title="Nutricion: Dietas para bajar de peso"
+              imageURL="https://littlevisuals.co/images/tail.jpg"
+              studentCount="5,000"
+            />
           </div>
         </div>
       </div>
