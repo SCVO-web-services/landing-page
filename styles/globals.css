@@ -15,6 +15,10 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.gradient-button {
+  background: linear-gradient(to right, purple, blue);
+  border: none;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
