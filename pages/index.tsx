@@ -52,16 +52,16 @@ export default function IndexPage() {
           </NavbarBrand>
           <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
             <NavbarItem isActive>
-              <Link href="#">Organigrama</Link>
+              <Link href="/">Home</Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#">Memorial</Link>
+              <Link href="/memorial">Memorial</Link>
             </NavbarItem>
             <NavbarItem isActive>
               <Link href="#">Cursos</Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#">Organigrama</Link>
+              <Link href="/organigrama">Organigrama</Link>
             </NavbarItem>
           </NavbarContent>
           <NavbarContent justify="end">

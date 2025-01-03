@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Presidencia",
+    "title": "Daniel Jaspe",
+    "children": [
+      {
+        "name": "Tesorero",
+        "title": "Julimar Rodriguez",
+        "children": [
+          {
+            "name": "CFO",
+            "title": "Argenis Monroy"
+          }
+        ]
+      },
+      {
+        "name": "Secretaria",
+        "title": "Andra puentes",
+        "children": [
+          {
+            "name": "Secretaria de finanzas",
+            "title": "Daniela Villareal",
+            "children": [
+              {
+                "name": "Secretaria de Finanzas",
+                "title": "Javier Miguel"
+              },
+              {
+                "name": "Directora de Eventos",
+                "title": "Veronica Rojas"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Relaciones Interinstitucionales",
+        "title": "COO"
+      }
+    ]
+  }
+]
