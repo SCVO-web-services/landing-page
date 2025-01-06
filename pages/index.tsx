@@ -1,3 +1,5 @@
+import { useState, useEffect, useCallback } from 'react';
+import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 import {
   NavbarBrand,
   Navbar,
@@ -6,42 +8,90 @@ import {
   Link,
   Button,
 } from '@nextui-org/react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+/**
+ * Accesorios para el componente CourseCard.
+ * @typedef {Object} CourseCardProps
+ * @property {string} title - El título del curso.
+ * @property {string} description - La descripción del curso.
+ * @property {string} imageUrl - La URL de la imagen del curso.
+ */
 // Definir los tipos de las props para CourseCard
 interface CourseCardProps {
   title: string;
   description: string;
-}
+  imageUrl: string; }
 
-// Componente para las tarjetas de cursos
-function CourseCard({ title, description }: CourseCardProps) {
+/**
+ * Componente para mostrar una tarjeta de curso.
+ * @param {CourseCardProps} props - Los accesorios para el componente.
+ * @returns {JSX.Element} - El componente renderizado.
+ */
+function CourseCard({ title, description, imageUrl }: CourseCardProps) {
   return (
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
+        <img src={imageUrl} alt={title} className="w-full h-48 object-cover mb-4 rounded-lg" />
         <h3 className="text-3xl font-bold mb-4">{title}</h3>
         <p className="text-gray-700 mb-6">{description}</p>
         <div className="flex justify-between">
-          <Button color="primary">
-            Ver más
-          </Button>
-          <Button color="secondary">
-            Inscribirse
-          </Button>
+          <Button color="primary">Ver más</Button>
+          <Button color="secondary">Inscribirse</Button>
         </div>
       </div>
     </div>
   );
 }
 
-// Mejoras en el componente IndexPage
+/**
+ * El componente de la página principal de la página de índice.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function IndexPage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
   const courses = [
-    { title: 'Curso 1', description: 'Descripción del curso 1' },
-    { title: 'Curso 2', description: 'Descripción del curso 2' },
-    { title: 'Curso 3', description: 'Descripción del curso 3' },
+    { title: 'Curso 1', description: 'Descripción del curso 1', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 2', description: 'Descripción del curso 2', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 3', description: 'Descripción del curso 3', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 4', description: 'Descripción del curso 4', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 5', description: 'Descripción del curso 5', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 6', description: 'Descripción del curso 6', imageUrl: 'https://via.placeholder.com/300' },
   ];
+
+  /**
+   * Avanza el carrusel a la siguiente diapositiva.
+   */
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === courses.length - 3 ? 0 : prevIndex + 1
+    );
+  }, [courses.length]);
+
+  /**
+   * Mueve el carrusel a la diapositiva anterior.
+   */
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? courses.length - 3 : prevIndex - 1
+    );
+  };
+
+  /**
+   * Alterna la funcionalidad de reproducción automática del carrusel.
+   */
+  const toggleAutoplay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | number;
+    if (isPlaying) {
+      interval = setInterval(nextSlide, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, nextSlide]);
 
   return (
     <>
@@ -95,12 +145,56 @@ export default function IndexPage() {
           </div>
         </div>
         {/* Carrusel de tarjetas */}
-        <div className="flex items-center justify-center mt-8">
-          <Carousel showArrows={true} showThumbs={false} infiniteLoop={true}>
-            {courses.map((course, index) => (
-              <CourseCard key={index} title={course.title} description={course.description} />
-            ))}
-          </Carousel>
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                }}
+              >
+                {courses.map((course, index) => (
+                  <div
+                    key={index}
+                    className="w-1/3 flex-shrink-0 px-4"
+                    role="article"
+                    aria-label={course.title}
+                  >
+                    <CourseCard title={course.title} description={course.description} imageUrl={course.imageUrl} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Previous slide"
+            >
+              <FiChevronLeft className="w-6 h-6 text-gray-800" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Next slide"
+            >
+              <FiChevronRight className="w-6 h-6 text-gray-800" />
+            </button>
+
+            <button
+              onClick={toggleAutoplay}
+              className="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label={isPlaying ? 'Pause autoplay' : 'Start autoplay'}
+            >
+              {isPlaying ? (
+                <FiPause className="w-6 h-6 text-gray-800" />
+              ) : (
+                <FiPlay className="w-6 h-6 text-gray-800" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </>

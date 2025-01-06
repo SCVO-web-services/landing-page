@@ -8,6 +8,10 @@ import {
 } from '@nextui-org/react';
 import Chart from '../components/Chart';
 
+/**
+ * El componente de la página principal de la página del organigrama.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function OrganigramaPage() {
   return (
     <>

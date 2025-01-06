@@ -7,14 +7,24 @@ import {
   Button,
 } from '@nextui-org/react';
 
-// Definir los tipos de las props para MemorialCard
+/**
+ * Accesorios para el componente MemorialCard.
+ * @typedef {Object} MemorialCardProps
+ * @property {string} name - El nombre de la persona a la que se conmemora.
+ * @property {string} dedication - El texto de la dedicatoria del memorial.
+ * @property {string} [photoUrl] - La URL de la foto de la persona (opcional).
+ */
 interface MemorialCardProps {
   name: string;
   dedication: string;
   photoUrl?: string;
 }
 
-// Componente para las tarjetas de memorial
+/**
+ * Componente para mostrar una tarjeta conmemorativa.
+ * @param {MemorialCardProps} props - Los accesorios para el componente.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
   return (
     <div className="p-4 w-full sm:w-1/2 lg:w-1/4">
@@ -35,7 +45,10 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
   );
 }
 
-// Componente MemorialPage
+/**
+ * El componente de la página principal de la página conmemorativa.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function MemorialPage() {
   const memorials = [
     { name: 'Joanna Irtuña', dedication: 'Siempre con nosotros', photoUrl: '' },
@@ -80,7 +93,7 @@ export default function MemorialPage() {
             </NavbarItem>
           </NavbarContent>
         </Navbar>
-        {/* Tarjetas de memorial */}
+        {/* Memorial cards */}
         <div className="flex flex-wrap justify-center mt-8">
           {memorials.map((memorial, index) => (
             <MemorialCard
