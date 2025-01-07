@@ -6,6 +6,7 @@ import {
   Link,
   Button,
 } from '@nextui-org/react';
+import Image from 'next/image'; // Importa el componente Image
 
 /**
  * Accesorios para el componente MemorialCard.
@@ -32,7 +33,7 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
         <div className="flex justify-center mb-4">
           <div className="w-24 h-24 bg-gray-200 rounded-full overflow-hidden">
             {photoUrl ? (
-              <img src={photoUrl} alt={name} className="w-full h-full object-cover" />
+              <Image src={photoUrl} alt={name} className="w-full h-full object-cover" width={96} height={96} />
             ) : (
               <div className="w-full h-full bg-gray-200"></div>
             )}

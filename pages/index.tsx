@@ -8,6 +8,7 @@ import {
   Link,
   Button,
 } from '@nextui-org/react';
+import Image from 'next/image';
 
 /**
  * Accesorios para el componente CourseCard.
@@ -20,7 +21,8 @@ import {
 interface CourseCardProps {
   title: string;
   description: string;
-  imageUrl: string; }
+  imageUrl: string;
+}
 
 /**
  * Componente para mostrar una tarjeta de curso.
@@ -31,9 +33,9 @@ function CourseCard({ title, description, imageUrl }: CourseCardProps) {
   return (
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
-        <img src={imageUrl} alt={title} className="w-full h-48 object-cover mb-4 rounded-lg" />
+        <Image src={imageUrl} alt={title} className="w-full h-48 object-cover mb-2 rounded-lg" width={500} height={300} /> {/* Reduce margin-bottom */}
         <h3 className="text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6">{description}</p>
+        <p className="text-gray-700 mb-6 font-bold">{description}</p> {/* Descripción en negrita */}
         <div className="flex justify-between">
           <Button color="primary">Ver más</Button>
           <Button color="secondary">Inscribirse</Button>
