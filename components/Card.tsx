@@ -37,11 +37,22 @@ const OrgCard: React.FC<CardProps> = ({ data }) => {
       {data.map((item) => (
         <Fragment key={item.name}>
           <li>
-            <Card style={{ maxWidth: "300px", margin: "20px auto", padding: "20px", textAlign: "center" }}>
+            <Card
+              style={{
+                maxWidth: '300px',
+                margin: '20px auto',
+                padding: '20px',
+                textAlign: 'center',
+              }}
+            >
               <div>
                 <Avatar
                   src={`https://i.pravatar.cc/150?u=${item.name}`}
-                  style={{ width: "80px", height: "80px", border: `5px solid ${levelColor}` }}
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    border: `5px solid ${levelColor}`,
+                  }}
                 />
                 <h4>{item.name}</h4>
                 <p>{item.title}</p>

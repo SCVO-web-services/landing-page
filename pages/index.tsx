@@ -33,9 +33,17 @@ function CourseCard({ title, description, imageUrl }: CourseCardProps) {
   return (
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
-        <Image src={imageUrl} alt={title} className="w-full h-48 object-cover mb-2 rounded-lg" width={500} height={300} /> {/* Reduce margin-bottom */}
+        <Image
+          src={imageUrl}
+          alt={title}
+          className="w-full h-48 object-cover mb-2 rounded-lg"
+          width={500}
+          height={300}
+        />{' '}
+        {/* Reduce margin-bottom */}
         <h3 className="text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6 font-bold">{description}</p> {/* Descripción en negrita */}
+        <p className="text-gray-700 mb-6 font-bold">{description}</p>{' '}
+        {/* Descripción en negrita */}
         <div className="flex justify-between">
           <Button color="primary">Ver más</Button>
           <Button color="secondary">Inscribirse</Button>
@@ -54,12 +62,36 @@ export default function IndexPage() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const courses = [
-    { title: 'Curso 1', description: 'La obecidad en Venezuela', imageUrl: '/pictures/1.jpg' },
-    { title: 'Curso 2', description: 'Nutricion en niños', imageUrl: '/pictures/2.jpg' },
-    { title: 'Curso 3', description: 'Como bajar de peso en 32 años', imageUrl: '/pictures/3.jpg' },
-    { title: 'Curso 4', description: 'La obesidad morbida y la diabetes', imageUrl: '/pictures/4.jpg' },
-    { title: 'Curso 5', description: 'Correlacion directa entre las cachapas y los infartos', imageUrl: '/pictures/5.jpg' },
-    { title: 'Curso 6', description: 'Como comer mas comiendo menos', imageUrl: '/pictures/6.jpg' },
+    {
+      title: 'Curso 1',
+      description: 'La obecidad en Venezuela',
+      imageUrl: '/pictures/1.jpg',
+    },
+    {
+      title: 'Curso 2',
+      description: 'Nutricion en niños',
+      imageUrl: '/pictures/2.jpg',
+    },
+    {
+      title: 'Curso 3',
+      description: 'Como bajar de peso en 32 años',
+      imageUrl: '/pictures/3.jpg',
+    },
+    {
+      title: 'Curso 4',
+      description: 'La obesidad morbida y la diabetes',
+      imageUrl: '/pictures/4.jpg',
+    },
+    {
+      title: 'Curso 5',
+      description: 'Correlacion directa entre las cachapas y los infartos',
+      imageUrl: '/pictures/5.jpg',
+    },
+    {
+      title: 'Curso 6',
+      description: 'Como comer mas comiendo menos',
+      imageUrl: '/pictures/6.jpg',
+    },
   ];
 
   /**
@@ -67,7 +99,7 @@ export default function IndexPage() {
    */
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === courses.length - 3 ? 0 : prevIndex + 1
+      prevIndex === courses.length - 3 ? 0 : prevIndex + 1,
     );
   }, [courses.length]);
 
@@ -76,7 +108,7 @@ export default function IndexPage() {
    */
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? courses.length - 3 : prevIndex - 1
+      prevIndex === 0 ? courses.length - 3 : prevIndex - 1,
     );
   };
 
@@ -130,11 +162,16 @@ export default function IndexPage() {
         {/* Imagen representativa */}
         <div
           className="flex items-center justify-center h-[500px] bg-cover"
-          style={{ backgroundImage: 'url(https://littlevisuals.co/images/flying_high.jpg)' }}
+          style={{
+            backgroundImage:
+              'url(https://littlevisuals.co/images/flying_high.jpg)',
+          }}
         >
           <div className="w-full sm:w-1/2 flex flex-col items-center">
             <div className="text-center">
-              <p className="font-bold text-6xl">La plataforma médica educativa</p>
+              <p className="font-bold text-6xl">
+                La plataforma médica educativa
+              </p>
             </div>
             <Button
               size="md"
@@ -163,7 +200,11 @@ export default function IndexPage() {
                     role="article"
                     aria-label={course.title}
                   >
-                    <CourseCard title={course.title} description={course.description} imageUrl={course.imageUrl} />
+                    <CourseCard
+                      title={course.title}
+                      description={course.description}
+                      imageUrl={course.imageUrl}
+                    />
                   </div>
                 ))}
               </div>

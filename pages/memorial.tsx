@@ -33,13 +33,21 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
         <div className="flex justify-center mb-4">
           <div className="w-24 h-24 bg-gray-200 rounded-full overflow-hidden">
             {photoUrl ? (
-              <Image src={photoUrl} alt={name} className="w-full h-full object-cover" width={96} height={96} />
+              <Image
+                src={photoUrl}
+                alt={name}
+                className="w-full h-full object-cover"
+                width={96}
+                height={96}
+              />
             ) : (
               <div className="w-full h-full bg-gray-200"></div>
             )}
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 text-center text-black">{name}</h3>
+        <h3 className="text-xl font-bold mb-2 text-center text-black">
+          {name}
+        </h3>
         <p className="text-gray-700 text-center">{dedication}</p>
       </div>
     </div>
@@ -53,7 +61,11 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
 export default function MemorialPage() {
   const memorials = [
     { name: 'Joanna Irtuña', dedication: 'Siempre con nosotros', photoUrl: '' },
-    { name: 'Javier Miguel', dedication: 'Oncologo, recordado siempre', photoUrl: '' },
+    {
+      name: 'Javier Miguel',
+      dedication: 'Oncologo, recordado siempre',
+      photoUrl: '',
+    },
     { name: 'Nombre 3', dedication: 'Amado por la famila', photoUrl: '' },
     { name: 'Nombre 4', dedication: 'Dedicatoria 4', photoUrl: '' },
     { name: 'Nombre 5', dedication: 'Dedicatoria 5', photoUrl: '' },
