@@ -52,12 +52,12 @@ export default function IndexPage() {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const courses = [
-    { title: 'Curso 1', description: 'Descripción del curso 1', imageUrl: 'https://via.placeholder.com/300' },
-    { title: 'Curso 2', description: 'Descripción del curso 2', imageUrl: 'https://via.placeholder.com/300' },
-    { title: 'Curso 3', description: 'Descripción del curso 3', imageUrl: 'https://via.placeholder.com/300' },
-    { title: 'Curso 4', description: 'Descripción del curso 4', imageUrl: 'https://via.placeholder.com/300' },
-    { title: 'Curso 5', description: 'Descripción del curso 5', imageUrl: 'https://via.placeholder.com/300' },
-    { title: 'Curso 6', description: 'Descripción del curso 6', imageUrl: 'https://via.placeholder.com/300' },
+    { title: 'Curso 1', description: 'La obecidad en Venezuela', imageUrl: '/pictures/1.jpg' },
+    { title: 'Curso 2', description: 'Nutricion en niños', imageUrl: '/pictures/2.jpg' },
+    { title: 'Curso 3', description: 'Como bajar de peso en 32 años', imageUrl: '/pictures/3.jpg' },
+    { title: 'Curso 4', description: 'La obesidad morbida y la diabetes', imageUrl: '/pictures/4.jpg' },
+    { title: 'Curso 5', description: 'Correlacion directa entre las cachapas y los infartos', imageUrl: '/pictures/5.jpg' },
+    { title: 'Curso 6', description: 'Como comer mas comiendo menos', imageUrl: '/pictures/6.jpg' },
   ];
 
   /**
