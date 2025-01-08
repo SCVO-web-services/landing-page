@@ -8,8 +8,10 @@ import data from '../data/data.json';
  */
 const Chart: React.FC = () => {
   return (
-    <div className="org-tree">
-      <OrgCard data={data} />
+    <div className="org-container">
+      <div className="org-tree">
+        <OrgCard data={data} />
+      </div>
     </div>
   );
 };

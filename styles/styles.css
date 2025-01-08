@@ -8,6 +8,18 @@ body {
     background: #fff;
 }
 
+.org-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+}
+
+.org-tree {
+    display: inline-block; /* Asegura que el organigrama se centre correctamente */
+}
+
 .org-tree ul {
     padding-top: 20px;
     position: relative;
@@ -35,6 +47,7 @@ body {
     width: 50%;
     height: 20px;
 }
+
 .org-tree li::after {
     right: auto;
     left: 50%;
@@ -54,12 +67,15 @@ body {
 .org-tree li:last-child::after {
     border: 0 none;
 }
+
 .org-tree li:last-child::before {
     border-right: 1px solid #ccc;
 }
+
 .org-tree li:last-child::before {
     border-radius: 0 5px 0 0;
 }
+
 .org-tree li:first-child::after {
     border-radius: 5px 0 0 0;
 }
@@ -89,12 +105,14 @@ body {
     top: -10px;
     z-index: 100;
 }
+
 .card .image img {
     border-radius: 50%;
     width: 80px;
     height: 80px;
     border: 5px solid #96f6b7;
 }
+
 .card .card-body {
     background: #f3f3f3;
     height: 56px;
@@ -114,10 +132,12 @@ body {
     font-weight: 600;
     line-height: 20px;
 }
+
 .card .card-body p {
     line-height: 20px;
     font-size: small;
 }
+
 .card .card-footer {
     padding: 3px;
     background: #96f6b7;
@@ -132,6 +152,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
+
 .card .card-footer img {
     width: 25px;
     margin: 5px;
