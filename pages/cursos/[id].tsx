@@ -25,27 +25,33 @@ const CoursePage = ({ course }: CoursePageProps) => {
   return (
     <div className="container mx-auto">
       <CustomNavbar /> {/* Usar el componente Navbar */}
-      <div
-        className="flex items-center justify-start h-[500px] bg-cover"
-        style={{
-          backgroundImage: `url(${course.imageUrl})`,
-        }}
-      >
-        <div className="w-full sm:w-1/2 flex flex-col items-start pl-6">
-          <div>
-            <h1 className="font-bold text-6xl text-black">
-              {course.description}
-            </h1>
-            <p className="text-black mt-4">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias excepturi sint occaecati cupiditate non
-              provident, similique sunt in culpa qui officia deserunt mollitia
-              animi, id est laborum et dolorum fuga.
-            </p>
-            <Button color="primary" className="mt-4">
-              Inscribirse
-            </Button>
+      <div className="relative h-[500px]">
+        <div
+          className="absolute inset-0 bg-white opacity-50"
+          style={{ opacity: 0.65 }} // Ajusta la opacidad aquí
+        ></div>
+        <div
+          className="flex items-center justify-start h-full bg-cover"
+          style={{
+            backgroundImage: `url(${course.imageUrl})`,
+          }}
+        >
+          <div className="w-full sm:w-1/2 flex flex-col items-start pl-6 relative z-10">
+            <div>
+              <h1 className="font-bold text-6xl text-black">
+                {course.description}
+              </h1>
+              <p className="text-black mt-4">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                blanditiis praesentium voluptatum deleniti atque corrupti quos
+                dolores et quas molestias excepturi sint occaecati cupiditate non
+                provident, similique sunt in culpa qui officia deserunt mollitia
+                animi, id est laborum et dolorum fuga.
+              </p>
+              <Button color="primary" className="mt-4 text-lg py-6 px-12">
+                Inscribirse
+              </Button>
+            </div>
           </div>
         </div>
       </div>
