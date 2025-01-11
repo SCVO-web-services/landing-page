@@ -61,21 +61,16 @@ const CoursePage = ({ course }: CoursePageProps) => {
       >
         <div className="w-full sm:w-1/2 flex flex-col items-center">
           <div className="text-center">
-            <h1 className="font-bold text-6xl text-white">{course.title}</h1>
+            <h1 className="font-bold text-6xl text-black">{course.description}</h1>
           </div>
         </div>
       </div>
       <div className="container mx-auto p-8">
         <div className="bg-white shadow-lg rounded-lg p-8">
-          <Image
-            src={course.imageUrl}
-            alt={course.title}
-            className="w-full h-48 object-cover mb-4 rounded-lg"
-            width={500}
-            height={300}
-          />
           <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-          <p className="text-gray-700 mb-6">{course.description}</p>
+          <p className="text-gray-700 mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
           <Button color="primary" onClick={() => router.back()}>
             Volver
           </Button>
