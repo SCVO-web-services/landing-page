@@ -2,7 +2,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { Button } from '@nextui-org/react';
+import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link } from '@nextui-org/react';
 
 interface Course {
   id: string;
@@ -23,20 +23,63 @@ const CoursePage = ({ course }: CoursePageProps) => {
   }
 
   return (
-    <div className="container mx-auto p-8">
-      <div className="bg-white shadow-lg rounded-lg p-8">
-        <Image
-          src={course.imageUrl}
-          alt={course.title}
-          className="w-full h-48 object-cover mb-4 rounded-lg"
-          width={500}
-          height={300}
-        />
-        <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-        <p className="text-gray-700 mb-6">{course.description}</p>
-        <Button color="primary" onClick={() => router.back()}>
-          Volver
-        </Button>
+    <div className="container mx-auto">
+      <Navbar position="static">
+        <NavbarBrand>
+          <p className="font-bold text-inherit">SCVO</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
+          <NavbarItem isActive>
+            <Link href="/">Home</Link>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="/memorial">Memorial</Link>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="#">Cursos</Link>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="/organigrama">Organigrama</Link>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent justify="end">
+          <NavbarItem className="hidden lg:flex">
+            <Link href="#">Login</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+      <div
+        className="flex items-center justify-center h-[500px] bg-cover"
+        style={{
+          backgroundImage: `url(${course.imageUrl})`,
+        }}
+      >
+        <div className="w-full sm:w-1/2 flex flex-col items-center">
+          <div className="text-center">
+            <h1 className="font-bold text-6xl text-white">{course.title}</h1>
+          </div>
+        </div>
+      </div>
+      <div className="container mx-auto p-8">
+        <div className="bg-white shadow-lg rounded-lg p-8">
+          <Image
+            src={course.imageUrl}
+            alt={course.title}
+            className="w-full h-48 object-cover mb-4 rounded-lg"
+            width={500}
+            height={300}
+          />
+          <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
+          <p className="text-gray-700 mb-6">{course.description}</p>
+          <Button color="primary" onClick={() => router.back()}>
+            Volver
+          </Button>
+        </div>
       </div>
     </div>
   );
