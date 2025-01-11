@@ -1,5 +1,12 @@
 // components/Navbar.tsx
-import { NavbarBrand, Navbar, NavbarContent, NavbarItem, Link, Button } from '@nextui-org/react';
+import {
+  NavbarBrand,
+  Navbar,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from '@nextui-org/react';
 
 const CustomNavbar = () => {
   return (
