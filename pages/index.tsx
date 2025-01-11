@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
+import { useRouter } from 'next/router';
 import {
   NavbarBrand,
   Navbar,
@@ -16,12 +17,14 @@ import Image from 'next/image';
  * @property {string} title - El título del curso.
  * @property {string} description - La descripción del curso.
  * @property {string} imageUrl - La URL de la imagen del curso.
+ * @property {string} id - El ID del curso.
  */
 // Definir los tipos de las props para CourseCard
 interface CourseCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  id: string;
 }
 
 /**
@@ -29,7 +32,13 @@ interface CourseCardProps {
  * @param {CourseCardProps} props - Los accesorios para el componente.
  * @returns {JSX.Element} - El componente renderizado.
  */
-function CourseCard({ title, description, imageUrl }: CourseCardProps) {
+function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
+  const router = useRouter();
+
+  const handleViewMore = () => {
+    router.push(`/cursos/${id}`);
+  };
+
   return (
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
@@ -39,13 +48,13 @@ function CourseCard({ title, description, imageUrl }: CourseCardProps) {
           className="w-full h-48 object-cover mb-2 rounded-lg"
           width={500}
           height={300}
-        />{' '}
-        {/* Reduce margin-bottom */}
+        />
         <h3 className="text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6 font-bold">{description}</p>{' '}
-        {/* Descripción en negrita */}
+        <p className="text-gray-700 mb-6 font-bold">{description}</p>
         <div className="flex justify-between">
-          <Button color="primary">Ver más</Button>
+          <Button color="primary" onClick={handleViewMore}>
+            Ver más
+          </Button>
           <Button color="secondary">Inscribirse</Button>
         </div>
       </div>
@@ -63,31 +72,37 @@ export default function IndexPage() {
 
   const courses = [
     {
+      id: '1',
       title: 'Curso 1',
       description: 'La obecidad en Venezuela',
       imageUrl: '/pictures/1.jpg',
     },
     {
+      id: '2',
       title: 'Curso 2',
       description: 'Nutricion en niños',
       imageUrl: '/pictures/2.jpg',
     },
     {
+      id: '3',
       title: 'Curso 3',
       description: 'Como bajar de peso en 32 años',
       imageUrl: '/pictures/3.jpg',
     },
     {
+      id: '4',
       title: 'Curso 4',
       description: 'La obesidad morbida y la diabetes',
       imageUrl: '/pictures/4.jpg',
     },
     {
+      id: '5',
       title: 'Curso 5',
       description: 'Correlacion directa entre las cachapas y los infartos',
       imageUrl: '/pictures/5.jpg',
     },
     {
+      id: '6',
       title: 'Curso 6',
       description: 'Como comer mas comiendo menos',
       imageUrl: '/pictures/6.jpg',
@@ -201,6 +216,7 @@ export default function IndexPage() {
                     aria-label={course.title}
                   >
                     <CourseCard
+                      id={course.id}
                       title={course.title}
                       description={course.description}
                       imageUrl={course.imageUrl}
