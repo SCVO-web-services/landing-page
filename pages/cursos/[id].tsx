@@ -1,14 +1,8 @@
 // pages/cursos/[id].tsx
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-} from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
+import CustomNavbar from '../../components/Navbar'; // Importar el componente Navbar
 
 interface Course {
   id: string;
@@ -30,48 +24,20 @@ const CoursePage = ({ course }: CoursePageProps) => {
 
   return (
     <div className="container mx-auto">
-      <Navbar position="static">
-        <NavbarBrand>
-          <p className="font-bold text-inherit">SCVO</p>
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
-          <NavbarItem isActive>
-            <Link href="/">Home</Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/memorial">Memorial</Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="#">Cursos</Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/organigrama">Organigrama</Link>
-          </NavbarItem>
-        </NavbarContent>
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <Link href="#">Login</Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Button as={Link} color="primary" href="#" variant="flat">
-              Sign Up
-            </Button>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
+      <CustomNavbar /> {/* Usar el componente Navbar */}
       <div
-        className="flex items-center justify-center h-[500px] bg-cover"
+        className="flex items-center justify-start h-[500px] bg-cover"
         style={{
           backgroundImage: `url(${course.imageUrl})`,
         }}
       >
-        <div className="w-full sm:w-1/2 flex flex-col items-center">
-          <div className="text-center">
+        <div className="w-full sm:w-1/2 flex flex-col items-start pl-6">
+          <div>
             <h1 className="font-bold text-6xl text-black">
               {course.description}
             </h1>
             <p className="text-black mt-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
             </p>
             <Button color="primary" className="mt-4">
               Inscribirse

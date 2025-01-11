@@ -1,15 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 import { useRouter } from 'next/router';
-import {
-  NavbarBrand,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-} from '@nextui-org/react';
+import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
+import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
 
 /**
  * Accesorios para el componente CourseCard.
@@ -19,7 +13,6 @@ import Image from 'next/image';
  * @property {string} imageUrl - La URL de la imagen del curso.
  * @property {string} id - El ID del curso.
  */
-// Definir los tipos de las props para CourseCard
 interface CourseCardProps {
   title: string;
   description: string;
@@ -109,27 +102,18 @@ export default function IndexPage() {
     },
   ];
 
-  /**
-   * Avanza el carrusel a la siguiente diapositiva.
-   */
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === courses.length - 3 ? 0 : prevIndex + 1,
     );
   }, [courses.length]);
 
-  /**
-   * Mueve el carrusel a la diapositiva anterior.
-   */
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? courses.length - 3 : prevIndex - 1,
     );
   };
 
-  /**
-   * Alterna la funcionalidad de reproducción automática del carrusel.
-   */
   const toggleAutoplay = () => {
     setIsPlaying(!isPlaying);
   };
@@ -145,36 +129,7 @@ export default function IndexPage() {
   return (
     <>
       <div className="container mx-auto">
-        <Navbar position="static">
-          <NavbarBrand>
-            <p className="font-bold text-inherit">SCVO</p>
-          </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
-            <NavbarItem isActive>
-              <Link href="/">Home</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/memorial">Memorial</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="#">Cursos</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/organigrama">Organigrama</Link>
-            </NavbarItem>
-          </NavbarContent>
-          <NavbarContent justify="end">
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Button as={Link} color="primary" href="#" variant="flat">
-                Sign Up
-              </Button>
-            </NavbarItem>
-          </NavbarContent>
-        </Navbar>
-        {/* Imagen representativa */}
+        <CustomNavbar /> {/* Usar el componente Navbar */}
         <div
           className="flex items-center justify-center h-[500px] bg-cover"
           style={{
@@ -198,7 +153,6 @@ export default function IndexPage() {
             </Button>
           </div>
         </div>
-        {/* Carrusel de tarjetas */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="relative">
             <div className="overflow-hidden">
