@@ -1,7 +1,14 @@
 // pages/cursos/[id].tsx
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link } from '@nextui-org/react';
+import {
+  Button,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+} from '@nextui-org/react';
 
 interface Course {
   id: string;
@@ -60,9 +67,15 @@ const CoursePage = ({ course }: CoursePageProps) => {
       >
         <div className="w-full sm:w-1/2 flex flex-col items-center">
           <div className="text-center">
-            <h1 className="font-bold text-6xl text-black">{course.description}</h1>
-            <p className="text-black mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <Button color="primary" className="mt-4">Inscribirse</Button>
+            <h1 className="font-bold text-6xl text-black">
+              {course.description}
+            </h1>
+            <p className="text-black mt-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <Button color="primary" className="mt-4">
+              Inscribirse
+            </Button>
           </div>
         </div>
       </div>
@@ -76,7 +89,9 @@ const CoursePage = ({ course }: CoursePageProps) => {
               <p className="font-bold text-black">Nivel introductorio</p>
             </div>
             <div className="text-center">
-              <p className="font-bold text-black">4 Meses usando 2 horas a la semana</p>
+              <p className="font-bold text-black">
+                4 Meses usando 2 horas a la semana
+              </p>
             </div>
             <div className="text-center">
               <p className="font-bold text-black">Horario flexible</p>
@@ -89,7 +104,11 @@ const CoursePage = ({ course }: CoursePageProps) => {
             <li>Sed do eiusmod tempor incididunt</li>
             <li>Ut labore et dolore magna aliqua</li>
           </ul>
-          <Button color="primary" className="mt-4" onClick={() => router.back()}>
+          <Button
+            color="primary"
+            className="mt-4"
+            onClick={() => router.back()}
+          >
             Volver
           </Button>
         </div>
