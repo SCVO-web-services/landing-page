@@ -1,7 +1,6 @@
 // pages/cursos/[id].tsx
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link } from '@nextui-org/react';
 
 interface Course {
@@ -62,16 +61,35 @@ const CoursePage = ({ course }: CoursePageProps) => {
         <div className="w-full sm:w-1/2 flex flex-col items-center">
           <div className="text-center">
             <h1 className="font-bold text-6xl text-black">{course.description}</h1>
+            <p className="text-black mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <Button color="primary" className="mt-4">Inscribirse</Button>
           </div>
         </div>
       </div>
       <div className="container mx-auto p-8">
         <div className="bg-white shadow-lg rounded-lg p-8">
-          <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-          <p className="text-gray-700 mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <Button color="primary" onClick={() => router.back()}>
+          <div className="flex justify-around items-center border-b pb-4 mb-4">
+            <div className="text-center">
+              <p className="font-bold text-black">Certificado disponible</p>
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-black">Nivel introductorio</p>
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-black">4 Meses usando 2 horas a la semana</p>
+            </div>
+            <div className="text-center">
+              <p className="font-bold text-black">Horario flexible</p>
+            </div>
+          </div>
+          <h1 className="text-3xl font-bold mb-4 text-black">{course.title}</h1>
+          <ul className="list-disc pl-5 text-black">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Sed do eiusmod tempor incididunt</li>
+            <li>Ut labore et dolore magna aliqua</li>
+          </ul>
+          <Button color="primary" className="mt-4" onClick={() => router.back()}>
             Volver
           </Button>
         </div>
