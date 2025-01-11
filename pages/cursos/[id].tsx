@@ -94,13 +94,21 @@ const CoursePage = ({ course }: CoursePageProps) => {
               fugiat quo voluptas nulla pariatur?
             </li>
           </ul>
-          <Button
-            color="primary"
-            className="mt-4"
-            onClick={() => router.back()}
-          >
-            Volver
-          </Button>
+          <div className="flex space-x-4 mt-4">
+            <Button
+              color="primary"
+              onClick={() => router.push('/inscribirse')}
+            >
+              Inscribirse
+            </Button>
+            <Button
+              color="default"
+              css={{ backgroundColor: 'black', color: 'white' }}
+              onClick={() => router.back()}
+            >
+              Volver
+            </Button>
+          </div>
         </div>
       </div>
     </div>
