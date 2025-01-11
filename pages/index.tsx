@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
 import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
+import courses from '../data/courses.json'; // Importar los cursos desde el archivo JSON
 
 /**
  * Accesorios para el componente CourseCard.
@@ -62,45 +63,6 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-
-  const courses = [
-    {
-      id: '1',
-      title: 'Curso 1',
-      description: 'La obecidad en Venezuela',
-      imageUrl: '/pictures/1.jpg',
-    },
-    {
-      id: '2',
-      title: 'Curso 2',
-      description: 'Nutricion en niños',
-      imageUrl: '/pictures/2.jpg',
-    },
-    {
-      id: '3',
-      title: 'Curso 3',
-      description: 'Como bajar de peso en 32 años',
-      imageUrl: '/pictures/3.jpg',
-    },
-    {
-      id: '4',
-      title: 'Curso 4',
-      description: 'La obesidad morbida y la diabetes',
-      imageUrl: '/pictures/4.jpg',
-    },
-    {
-      id: '5',
-      title: 'Curso 5',
-      description: 'Correlacion directa entre las cachapas y los infartos',
-      imageUrl: '/pictures/5.jpg',
-    },
-    {
-      id: '6',
-      title: 'Curso 6',
-      description: 'Como comer mas comiendo menos',
-      imageUrl: '/pictures/6.jpg',
-    },
-  ];
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
