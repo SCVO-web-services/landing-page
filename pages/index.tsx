@@ -4,7 +4,11 @@ import { useRouter } from 'next/router';
 import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
 import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import courses from '../data/courses.json';
+import { obtenerNoticias } from '../utils/api';
+import TarjetaNoticia from '../components/TarjetaNoticia';
+import { Noticia } from '../types/noticia';
 
 interface CourseCardProps {
   title: string;
@@ -46,6 +50,7 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [noticias, setNoticias] = useState<Noticia[]>([]);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
@@ -70,6 +75,14 @@ export default function IndexPage() {
     }
     return () => clearInterval(interval);
   }, [isPlaying, nextSlide]);
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      const noticias = await obtenerNoticias();
+      setNoticias(noticias);
+    };
+    fetchNoticias();
+  }, []);
 
   return (
     <>
@@ -96,6 +109,14 @@ export default function IndexPage() {
             >
               Registrate con nosotros
             </Button>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <h1 className="text-3xl font-bold mb-6">Últimas Noticias</h1>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {noticias.map((noticia) => (
+              <TarjetaNoticia key={noticia.id} noticia={noticia} />
+            ))}
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -155,6 +176,7 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

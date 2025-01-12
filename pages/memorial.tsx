@@ -1,4 +1,5 @@
 import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
+import Footer from '../components/Footer'; // Importar el componente Footer
 import Image from 'next/image'; // Importa el componente Image
 
 /**
@@ -72,7 +73,7 @@ export default function MemorialPage() {
       <div className="container mx-auto">
         <CustomNavbar /> {/* Usar el componente Navbar */}
         {/* Memorial cards */}
-        <div className="flex flex-wrap justify-center mt-8">
+        <div className="flex flex-wrap justify-center mt-8 mb-80"> {/* Añadir margen inferior */}
           {memorials.map((memorial, index) => (
             <MemorialCard
               key={index}
@@ -83,6 +84,7 @@ export default function MemorialPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

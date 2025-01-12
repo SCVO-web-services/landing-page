@@ -1,4 +1,5 @@
 import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
+import Footer from '../components/Footer'; // Importar el componente Footer
 import Chart from '../components/Chart';
 
 /**
@@ -51,6 +52,7 @@ export default function OrganigramaPage() {
         </div>
         <Chart />
       </div>
+      <Footer />
     </>
   );
 }

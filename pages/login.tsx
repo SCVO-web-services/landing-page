@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from '@nextui-org/react';
 import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { FcGoogle } from 'react-icons/fc';
 
 export default function LoginForm() {
@@ -106,6 +107,7 @@ export default function LoginForm() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
