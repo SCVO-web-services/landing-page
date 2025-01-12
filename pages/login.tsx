@@ -6,11 +6,19 @@ import CustomNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { FcGoogle } from 'react-icons/fc';
 
+/**
+ * Componente de formulario de inicio de sesión.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function LoginForm() {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  /**
+   * Maneja el envío del formulario de inicio de sesión.
+   * @param {React.FormEvent<HTMLFormElement>} event - El evento de envío del formulario.
+   */
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsPending(true);
@@ -20,11 +28,11 @@ export default function LoginForm() {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
 
-    // Simulate login action
+    // Simula la acción de inicio de sesión
     try {
-      // Replace with actual login logic
+      // Reemplazar con la lógica real de inicio de sesión
       if (email === 'user@example.com' && password === 'password') {
-        router.push('/dashboard'); // Redirect to dashboard on successful login
+        router.push('/dashboard'); // Redirige al dashboard en caso de inicio de sesión exitoso
       } else {
         throw new Error('Invalid email or password');
       }

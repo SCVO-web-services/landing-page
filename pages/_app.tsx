@@ -4,9 +4,11 @@ import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import '../styles/styles.css';
 
-/*
- to add themes I used:  https://nextui.org/docs/customization/dark-mode#using-next-themes
-* */
+/**
+ * Componente principal de la aplicación.
+ * @param {AppProps} props - Los props de la aplicación.
+ * @returns {JSX.Element} El componente de la aplicación renderizado.
+ */
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>

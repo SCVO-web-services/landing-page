@@ -5,6 +5,17 @@ import { Button } from '@nextui-org/react';
 import CustomNavbar from '../../components/Navbar';
 import courses from '../../data/courses.json';
 
+/**
+ * Interfaz que representa un curso.
+ * @typedef {Object} Course
+ * @property {string} id - El ID del curso.
+ * @property {string} title - El título del curso.
+ * @property {string} description - La descripción del curso.
+ * @property {string} imageUrl - La URL de la imagen del curso.
+ * @property {string} introDescription - La descripción introductoria del curso.
+ * @property {string[]} details - Los detalles del curso.
+ * @property {string[]} learningPoints - Los puntos de aprendizaje del curso.
+ */
 interface Course {
   id: string;
   title: string;
@@ -15,10 +26,20 @@ interface Course {
   learningPoints: string[];
 }
 
+/**
+ * Props para el componente CoursePage.
+ * @typedef {Object} CoursePageProps
+ * @property {Course} course - El curso que se mostrará en la página.
+ */
 interface CoursePageProps {
   course: Course;
 }
 
+/**
+ * Componente para mostrar la página de un curso.
+ * @param {CoursePageProps} props - Los props para el componente.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 const CoursePage = ({ course }: CoursePageProps) => {
   const router = useRouter();
 
@@ -86,6 +107,10 @@ const CoursePage = ({ course }: CoursePageProps) => {
   );
 };
 
+/**
+ * Función para obtener los caminos estáticos.
+ * @returns {Promise<{ paths: { params: { id: string } }[], fallback: boolean }>} Los caminos estáticos.
+ */
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = courses.map((course) => ({
     params: { id: course.id },
@@ -94,6 +119,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: true };
 };
 
+/**
+ * Función para obtener las props estáticas.
+ * @param {Object} context - El contexto de la función.
+ * @param {Object} context.params - Los parámetros de la función.
+ * @returns {Promise<{ props: { course: Course | null } }>} Las props estáticas.
+ */
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const course = courses.find((course) => course.id === params?.id);
 

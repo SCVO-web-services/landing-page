@@ -10,6 +10,14 @@ import { obtenerNoticias } from '../utils/api';
 import TarjetaNoticia from '../components/TarjetaNoticia';
 import { Noticia } from '../types/noticia';
 
+/**
+ * Props para el componente CourseCard.
+ * @typedef {Object} CourseCardProps
+ * @property {string} title - El título del curso.
+ * @property {string} description - La descripción del curso.
+ * @property {string} imageUrl - La URL de la imagen del curso.
+ * @property {string} id - El ID del curso.
+ */
 interface CourseCardProps {
   title: string;
   description: string;
@@ -17,6 +25,11 @@ interface CourseCardProps {
   id: string;
 }
 
+/**
+ * Componente para mostrar una tarjeta de curso.
+ * @param {CourseCardProps} props - Los props para el componente.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
   const router = useRouter();
 
@@ -47,6 +60,10 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
   );
 }
 
+/**
+ * Página principal de la aplicación.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);

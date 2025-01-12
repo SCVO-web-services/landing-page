@@ -7,6 +7,10 @@ import {
   Button,
 } from '@nextui-org/react';
 
+/**
+ * Componente de barra de navegación personalizada.
+ * @returns {JSX.Element} El componente de barra de navegación renderizado.
+ */
 const CustomNavbar = () => {
   return (
     <Navbar position="static">
@@ -21,7 +25,7 @@ const CustomNavbar = () => {
           <Link href="/memorial">Memorial</Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/courses">Cursos</Link> {/* Updated link */}
+          <Link href="/courses">Cursos</Link> {/* Enlace actualizado */}
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="/organigrama">Organigrama</Link>

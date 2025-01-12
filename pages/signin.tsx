@@ -6,11 +6,19 @@ import CustomNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { FcGoogle } from 'react-icons/fc';
 
+/**
+ * Componente de formulario de registro.
+ * @returns {JSX.Element} El componente renderizado.
+ */
 export default function SignUpForm() {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  /**
+   * Maneja el envío del formulario de registro.
+   * @param {React.FormEvent<HTMLFormElement>} event - El evento de envío del formulario.
+   */
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsPending(true);
@@ -22,14 +30,14 @@ export default function SignUpForm() {
     const password = formData.get('password') as string;
     const confirmPassword = formData.get('confirmPassword') as string;
 
-    // Simulate sign-up action
+    // Simula la acción de registro
     try {
-      // Replace with actual sign-up logic
+      // Reemplazar con la lógica real de registro
       if (password !== confirmPassword) {
         throw new Error('Passwords do not match');
       }
       if (email && password && fullName) {
-        router.push('/dashboard'); // Redirect to dashboard on successful sign-up
+        router.push('/dashboard'); // Redirige al dashboard en caso de registro exitoso
       } else {
         throw new Error('Invalid input');
       }

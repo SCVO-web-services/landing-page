@@ -1,6 +1,10 @@
 // components/Footer.tsx
 import React from 'react';
 
+/**
+ * Componente de pie de página.
+ * @returns {JSX.Element} El componente de pie de página renderizado.
+ */
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-8">

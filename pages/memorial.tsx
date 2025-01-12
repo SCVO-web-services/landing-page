@@ -1,13 +1,13 @@
-import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
-import Footer from '../components/Footer'; // Importar el componente Footer
-import Image from 'next/image'; // Importa el componente Image
+import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Image from 'next/image';
 
 /**
- * Accesorios para el componente MemorialCard.
+ * Props for the MemorialCard component.
  * @typedef {Object} MemorialCardProps
- * @property {string} name - El nombre de la persona a la que se conmemora.
- * @property {string} dedication - El texto de la dedicatoria del memorial.
- * @property {string} [photoUrl] - La URL de la foto de la persona (opcional).
+ * @property {string} name - The name of the person being commemorated.
+ * @property {string} dedication - The text of the memorial dedication.
+ * @property {string} [photoUrl] - The URL of the person's photo (optional).
  */
 interface MemorialCardProps {
   name: string;
@@ -16,9 +16,9 @@ interface MemorialCardProps {
 }
 
 /**
- * Componente para mostrar una tarjeta conmemorativa.
- * @param {MemorialCardProps} props - Los accesorios para el componente.
- * @returns {JSX.Element} El componente renderizado.
+ * Component to display a memorial card.
+ * @param {MemorialCardProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered component.
  */
 function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
   return (
@@ -49,8 +49,8 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
 }
 
 /**
- * El componente de la página principal de la página conmemorativa.
- * @returns {JSX.Element} El componente renderizado.
+ * Main component for the memorial page.
+ * @returns {JSX.Element} The rendered component.
  */
 export default function MemorialPage() {
   const memorials = [
@@ -71,9 +71,8 @@ export default function MemorialPage() {
   return (
     <>
       <div className="container mx-auto">
-        <CustomNavbar /> {/* Usar el componente Navbar */}
-        {/* Memorial cards */}
-        <div className="flex flex-wrap justify-center mt-8 mb-80"> {/* Añadir margen inferior */}
+        <CustomNavbar />
+        <div className="flex flex-wrap justify-center mt-8 mb-80">
           {memorials.map((memorial, index) => (
             <MemorialCard
               key={index}
