@@ -32,7 +32,7 @@ function CourseCard({ title, description, imageUrl, schedule, level, learningPoi
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/signin');
+    router.push('/login');
   };
 
   const truncatedLearningPoints = learningPoints.slice(0, 2).join(' ').substring(0, 100) + '...';
