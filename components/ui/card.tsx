@@ -1,7 +1,13 @@
 // components/ui/card.tsx
 import React from 'react';
 
-export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Card({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={`card ${className}`}>{children}</div>;
 }
 

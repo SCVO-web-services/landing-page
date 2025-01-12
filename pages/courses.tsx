@@ -28,14 +28,22 @@ interface CourseCardProps {
  * @param {CourseCardProps} props - The props for the component.
  * @returns {JSX.Element} The rendered component.
  */
-function CourseCard({ title, description, imageUrl, schedule, level, learningPoints }: CourseCardProps) {
+function CourseCard({
+  title,
+  description,
+  imageUrl,
+  schedule,
+  level,
+  learningPoints,
+}: CourseCardProps) {
   const router = useRouter();
 
   const handleClick = () => {
     router.push('/login');
   };
 
-  const truncatedLearningPoints = learningPoints.slice(0, 2).join(' ').substring(0, 100) + '...';
+  const truncatedLearningPoints =
+    learningPoints.slice(0, 2).join(' ').substring(0, 100) + '...';
 
   return (
     <div className="p-4 w-full sm:w-1/2 lg:w-1/4">
@@ -57,8 +65,12 @@ function CourseCard({ title, description, imageUrl, schedule, level, learningPoi
             </div>
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 text-center text-black">{description}</h3>
-        <p className="text-gray-700 text-center"><strong>Lo que aprenderás:</strong> {truncatedLearningPoints}</p>
+        <h3 className="text-xl font-bold mb-2 text-center text-black">
+          {description}
+        </h3>
+        <p className="text-gray-700 text-center">
+          <strong>Lo que aprenderás:</strong> {truncatedLearningPoints}
+        </p>
         <div className="mt-4 text-center text-blue-900">
           <p>{schedule}</p>
           <p>{level}</p>

@@ -6,4 +6,3 @@ export interface Noticia {
   fecha: string;
   autor: string;
 }
-

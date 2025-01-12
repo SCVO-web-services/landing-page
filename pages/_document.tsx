@@ -9,8 +9,8 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body className="min-h-screen bg-background font-sans antialiased">
-      <Main />
-      <NextScript />
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );
