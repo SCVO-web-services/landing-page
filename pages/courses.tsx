@@ -40,23 +40,26 @@ function CourseCard({ title, description, imageUrl, schedule, level, learningPoi
   return (
     <div className="p-4 w-full sm:w-1/2 lg:w-1/4">
       <div
-        className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer"
+        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer"
         onClick={handleClick}
       >
-        <div className="flex justify-center mb-4">
-          <div className="w-24 h-24 bg-gray-200 rounded-full overflow-hidden">
+        <div className="relative flex justify-center mb-2">
+          <div className="w-full h-48 bg-gray-200 rounded overflow-hidden">
             <Image
               src={imageUrl}
               alt={title}
               className="w-full h-full object-cover"
-              width={96}
-              height={96}
+              width={384}
+              height={192}
             />
+            <div className="absolute top-2 right-2 bg-white border border-black text-black font-bold px-2 py-1 rounded">
+              Free
+            </div>
           </div>
         </div>
         <h3 className="text-xl font-bold mb-2 text-center text-black">{description}</h3>
-        <p className="text-gray-700 text-center">{truncatedLearningPoints}</p>
-        <div className="mt-4 text-gray-700 text-center">
+        <p className="text-gray-700 text-center"><strong>Lo que aprenderás:</strong> {truncatedLearningPoints}</p>
+        <div className="mt-4 text-center text-blue-900">
           <p>{schedule}</p>
           <p>{level}</p>
         </div>
