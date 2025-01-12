@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from '@nextui-org/react';
 import CustomNavbar from '../components/Navbar';
+import { FcGoogle } from 'react-icons/fc';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -81,6 +82,13 @@ export default function LoginForm() {
                 <p className="text-sm">{error}</p>
               </div>
             )}
+            <Button
+              className="w-full flex items-center justify-center mb-4"
+              style={{ backgroundColor: '#4285F4', color: 'white' }}
+            >
+              <FcGoogle className="mr-2" />
+              Log in with Google
+            </Button>
             <Button type="submit" className="w-full" disabled={isPending}>
               {isPending ? 'Logging in...' : 'Log in'}
             </Button>
