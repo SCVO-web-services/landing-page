@@ -21,7 +21,7 @@ const CustomNavbar = () => {
           <Link href="/memorial">Memorial</Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#">Cursos</Link>
+          <Link href="/courses">Cursos</Link> {/* Updated link */}
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="/organigrama">Organigrama</Link>
