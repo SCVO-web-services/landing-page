@@ -3,17 +3,9 @@ import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
-import CustomNavbar from '../components/Navbar'; // Importar el componente Navbar
-import courses from '../data/courses.json'; // Importar los cursos desde el archivo JSON
+import CustomNavbar from '../components/Navbar';
+import courses from '../data/courses.json';
 
-/**
- * Accesorios para el componente CourseCard.
- * @typedef {Object} CourseCardProps
- * @property {string} title - El título del curso.
- * @property {string} description - La descripción del curso.
- * @property {string} imageUrl - La URL de la imagen del curso.
- * @property {string} id - El ID del curso.
- */
 interface CourseCardProps {
   title: string;
   description: string;
@@ -21,11 +13,6 @@ interface CourseCardProps {
   id: string;
 }
 
-/**
- * Componente para mostrar una tarjeta de curso.
- * @param {CourseCardProps} props - Los accesorios para el componente.
- * @returns {JSX.Element} - El componente renderizado.
- */
 function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
   const router = useRouter();
 
@@ -56,10 +43,6 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
   );
 }
 
-/**
- * El componente de la página principal de la página de índice.
- * @returns {JSX.Element} El componente renderizado.
- */
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -68,7 +51,7 @@ export default function IndexPage() {
     setCurrentIndex((prevIndex) =>
       prevIndex === courses.length - 3 ? 0 : prevIndex + 1,
     );
-  }, [courses.length]);
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -91,7 +74,7 @@ export default function IndexPage() {
   return (
     <>
       <div className="container mx-auto">
-        <CustomNavbar /> {/* Usar el componente Navbar */}
+        <CustomNavbar />
         <div
           className="flex items-center justify-center h-[500px] bg-cover"
           style={{

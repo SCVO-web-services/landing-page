@@ -69,10 +69,7 @@ const CoursePage = ({ course }: CoursePageProps) => {
             ))}
           </ul>
           <div className="flex space-x-4 mt-4">
-            <Button
-              color="primary"
-              onClick={() => router.push('/inscribirse')}
-            >
+            <Button color="primary" onClick={() => router.push('/inscribirse')}>
               Inscribirse
             </Button>
             <Button

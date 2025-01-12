@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@nextui-org/react';
 import CustomNavbar from '../components/Navbar';
 
-export default function LoginForm() {
+export default function SignUpForm() {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,11 +18,11 @@ export default function LoginForm() {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
 
-    // Simulate login action
+    // Simulate sign-up action
     try {
-      // Replace with actual login logic
-      if (email === 'user@example.com' && password === 'password') {
-        router.push('/dashboard'); // Redirect to dashboard on successful login
+      // Replace with actual sign-up logic
+      if (email && password) {
+        router.push('/dashboard'); // Redirect to dashboard on successful sign-up
       } else {
         throw new Error('Invalid email or password');
       }
@@ -40,7 +40,7 @@ export default function LoginForm() {
       <div className="flex justify-center items-center min-h-screen">
         <div className="w-full max-w-md">
           <p className="font-bold text-inherit text-center mb-8 text-4xl">
-            Iniciar Sesión
+            Crear Cuenta
           </p>
           <form
             onSubmit={handleSubmit}
@@ -82,17 +82,17 @@ export default function LoginForm() {
               </div>
             )}
             <Button type="submit" className="w-full" disabled={isPending}>
-              {isPending ? 'Logging in...' : 'Log in'}
+              {isPending ? 'Creating account...' : 'Sign up'}
             </Button>
             <div className="mt-4 text-center">
               <span className="text-sm text-gray-600">
-                Don&apos;t have an account?{' '}
+                Already have an account?{' '}
               </span>
               <Link
-                href="/signup"
+                href="/login"
                 className="text-sm font-medium text-blue-600 hover:underline"
               >
-                Sign up
+                Log in
               </Link>
             </div>
           </form>
