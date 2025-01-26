@@ -30,7 +30,7 @@ Esto asegura que uses las dependencias exactas.
 npm install
 ```
 
-> ![TIP]
+> [!TIP]
 > Si se ejecuta con docker, el contenedor instalara las dependencias automáticamente.
 
 Este proyecto utiliza las siguientes dependencias clave:
@@ -69,7 +69,7 @@ yarn dev
 # o
 pnpm dev
 ```
-> ![TIP]
+> [!TIP]
 > Para correr el proyecto con docker, usar el siguiente comando: `docker compose up --build`
 
 Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
