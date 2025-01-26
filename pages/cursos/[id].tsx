@@ -95,7 +95,6 @@ const CoursePage = ({ course }: CoursePageProps) => {
             </Button>
             <Button
               color="default"
-              css={{ backgroundColor: 'black', color: 'white' }}
               onClick={() => router.back()}
             >
               Volver
