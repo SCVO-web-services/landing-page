@@ -1,35 +1,42 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FiChevronLeft, FiChevronRight, FiPlay, FiPause } from 'react-icons/fi';
-import {
-  NavbarBrand,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-} from '@nextui-org/react';
+import { useRouter } from 'next/router';
+import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
+import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import courses from '../data/courses.json';
+import { obtenerNoticias } from '../utils/api';
+import TarjetaNoticia from '../components/TarjetaNoticia';
+import { Noticia } from '../types/noticia';
 
 /**
- * Accesorios para el componente CourseCard.
+ * Props para el componente CourseCard.
  * @typedef {Object} CourseCardProps
  * @property {string} title - El título del curso.
  * @property {string} description - La descripción del curso.
  * @property {string} imageUrl - La URL de la imagen del curso.
+ * @property {string} id - El ID del curso.
  */
-// Definir los tipos de las props para CourseCard
 interface CourseCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  id: string;
 }
 
 /**
  * Componente para mostrar una tarjeta de curso.
- * @param {CourseCardProps} props - Los accesorios para el componente.
- * @returns {JSX.Element} - El componente renderizado.
+ * @param {CourseCardProps} props - Los props para el componente.
+ * @returns {JSX.Element} El componente renderizado.
  */
-function CourseCard({ title, description, imageUrl }: CourseCardProps) {
+function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
+  const router = useRouter();
+
+  const handleViewMore = () => {
+    router.push(`/cursos/${id}`);
+  };
+
   return (
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
@@ -39,13 +46,13 @@ function CourseCard({ title, description, imageUrl }: CourseCardProps) {
           className="w-full h-48 object-cover mb-2 rounded-lg"
           width={500}
           height={300}
-        />{' '}
-        {/* Reduce margin-bottom */}
+        />
         <h3 className="text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6 font-bold">{description}</p>{' '}
-        {/* Descripción en negrita */}
+        <p className="text-gray-700 mb-6 font-bold">{description}</p>
         <div className="flex justify-between">
-          <Button color="primary">Ver más</Button>
+          <Button color="primary" onClick={handleViewMore}>
+            Ver más
+          </Button>
           <Button color="secondary">Inscribirse</Button>
         </div>
       </div>
@@ -54,67 +61,26 @@ function CourseCard({ title, description, imageUrl }: CourseCardProps) {
 }
 
 /**
- * El componente de la página principal de la página de índice.
+ * Página principal de la aplicación.
  * @returns {JSX.Element} El componente renderizado.
  */
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [noticias, setNoticias] = useState<Noticia[]>([]);
 
-  const courses = [
-    {
-      title: 'Curso 1',
-      description: 'La obecidad en Venezuela',
-      imageUrl: '/pictures/1.jpg',
-    },
-    {
-      title: 'Curso 2',
-      description: 'Nutricion en niños',
-      imageUrl: '/pictures/2.jpg',
-    },
-    {
-      title: 'Curso 3',
-      description: 'Como bajar de peso en 32 años',
-      imageUrl: '/pictures/3.jpg',
-    },
-    {
-      title: 'Curso 4',
-      description: 'La obesidad morbida y la diabetes',
-      imageUrl: '/pictures/4.jpg',
-    },
-    {
-      title: 'Curso 5',
-      description: 'Correlacion directa entre las cachapas y los infartos',
-      imageUrl: '/pictures/5.jpg',
-    },
-    {
-      title: 'Curso 6',
-      description: 'Como comer mas comiendo menos',
-      imageUrl: '/pictures/6.jpg',
-    },
-  ];
-
-  /**
-   * Avanza el carrusel a la siguiente diapositiva.
-   */
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === courses.length - 3 ? 0 : prevIndex + 1,
     );
-  }, [courses.length]);
+  }, []);
 
-  /**
-   * Mueve el carrusel a la diapositiva anterior.
-   */
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? courses.length - 3 : prevIndex - 1,
     );
   };
 
-  /**
-   * Alterna la funcionalidad de reproducción automática del carrusel.
-   */
   const toggleAutoplay = () => {
     setIsPlaying(!isPlaying);
   };
@@ -127,39 +93,18 @@ export default function IndexPage() {
     return () => clearInterval(interval);
   }, [isPlaying, nextSlide]);
 
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      const noticias = await obtenerNoticias();
+      setNoticias(noticias);
+    };
+    fetchNoticias();
+  }, []);
+
   return (
     <>
       <div className="container mx-auto">
-        <Navbar position="static">
-          <NavbarBrand>
-            <p className="font-bold text-inherit">SCVO</p>
-          </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
-            <NavbarItem isActive>
-              <Link href="/">Home</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/memorial">Memorial</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="#">Cursos</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/organigrama">Organigrama</Link>
-            </NavbarItem>
-          </NavbarContent>
-          <NavbarContent justify="end">
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Button as={Link} color="primary" href="#" variant="flat">
-                Sign Up
-              </Button>
-            </NavbarItem>
-          </NavbarContent>
-        </Navbar>
-        {/* Imagen representativa */}
+        <CustomNavbar />
         <div
           className="flex items-center justify-center h-[500px] bg-cover"
           style={{
@@ -183,7 +128,14 @@ export default function IndexPage() {
             </Button>
           </div>
         </div>
-        {/* Carrusel de tarjetas */}
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <h1 className="text-3xl font-bold mb-6">Últimas Noticias</h1>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {noticias.map((noticia) => (
+              <TarjetaNoticia key={noticia.id} noticia={noticia} />
+            ))}
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="relative">
             <div className="overflow-hidden">
@@ -201,6 +153,7 @@ export default function IndexPage() {
                     aria-label={course.title}
                   >
                     <CourseCard
+                      id={course.id}
                       title={course.title}
                       description={course.description}
                       imageUrl={course.imageUrl}
@@ -240,6 +193,7 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

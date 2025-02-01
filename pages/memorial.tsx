@@ -1,19 +1,13 @@
-import {
-  NavbarBrand,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-} from '@nextui-org/react';
-import Image from 'next/image'; // Importa el componente Image
+import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Image from 'next/image';
 
 /**
- * Accesorios para el componente MemorialCard.
+ * Props for the MemorialCard component.
  * @typedef {Object} MemorialCardProps
- * @property {string} name - El nombre de la persona a la que se conmemora.
- * @property {string} dedication - El texto de la dedicatoria del memorial.
- * @property {string} [photoUrl] - La URL de la foto de la persona (opcional).
+ * @property {string} name - The name of the person being commemorated.
+ * @property {string} dedication - The text of the memorial dedication.
+ * @property {string} [photoUrl] - The URL of the person's photo (optional).
  */
 interface MemorialCardProps {
   name: string;
@@ -22,9 +16,9 @@ interface MemorialCardProps {
 }
 
 /**
- * Componente para mostrar una tarjeta conmemorativa.
- * @param {MemorialCardProps} props - Los accesorios para el componente.
- * @returns {JSX.Element} El componente renderizado.
+ * Component to display a memorial card.
+ * @param {MemorialCardProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered component.
  */
 function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
   return (
@@ -55,8 +49,8 @@ function MemorialCard({ name, dedication, photoUrl }: MemorialCardProps) {
 }
 
 /**
- * El componente de la página principal de la página conmemorativa.
- * @returns {JSX.Element} El componente renderizado.
+ * Main component for the memorial page.
+ * @returns {JSX.Element} The rendered component.
  */
 export default function MemorialPage() {
   const memorials = [
@@ -77,37 +71,8 @@ export default function MemorialPage() {
   return (
     <>
       <div className="container mx-auto">
-        <Navbar position="static">
-          <NavbarBrand>
-            <p className="font-bold text-inherit">SCVO</p>
-          </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
-            <NavbarItem isActive>
-              <Link href="/">Home</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/memorial">Memorial</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="#">Cursos</Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="/organigrama">Organigrama</Link>
-            </NavbarItem>
-          </NavbarContent>
-          <NavbarContent justify="end">
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Button as={Link} color="primary" href="#" variant="flat">
-                Sign Up
-              </Button>
-            </NavbarItem>
-          </NavbarContent>
-        </Navbar>
-        {/* Memorial cards */}
-        <div className="flex flex-wrap justify-center mt-8">
+        <CustomNavbar />
+        <div className="flex flex-wrap justify-center mt-8 mb-80">
           {memorials.map((memorial, index) => (
             <MemorialCard
               key={index}
@@ -118,6 +83,7 @@ export default function MemorialPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

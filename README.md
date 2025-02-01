@@ -30,6 +30,9 @@ Esto asegura que uses las dependencias exactas.
 npm install
 ```
 
+> [!TIP]
+> Si se ejecuta con docker, el contenedor instalara las dependencias automáticamente.
+
 Este proyecto utiliza las siguientes dependencias clave:
 
 - [Next.js](https://nextjs.org/) - El marco de React para producción.
@@ -38,6 +41,7 @@ Este proyecto utiliza las siguientes dependencias clave:
 - [ESLint](https://eslint.org/) - Una herramienta de linting configurable y enchufable para identificar e informar sobre patrones en JavaScript.
 - [Prettier](https://prettier.io/) - Un formateador de código con opiniones.
 - [Jest](https://jestjs.io/) - Un marco de pruebas de JavaScript con un enfoque en la simplicidad.
+- [Docker]() - Un conjunto de productos de plataforma como servicio que utilizan virtualización a nivel de sistema operativo para entregar software en paquetes llamados contenedores.
 
 Para asegurar la calidad del código, este proyecto utiliza [ESLint](https://eslint.org/) para el linting y [Prettier](https://prettier.io/) para el formateo del código. Asegúrate de ejecutar el linter y el formateador antes de hacer commit:
 
@@ -65,6 +69,8 @@ yarn dev
 # o
 pnpm dev
 ```
+> [!TIP]
+> Para correr el proyecto con docker, usar el siguiente comando: `docker compose up --build`
 
 Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
 
