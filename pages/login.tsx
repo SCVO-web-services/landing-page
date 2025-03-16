@@ -109,7 +109,7 @@ export default function LoginForm() {
                 href="/signup"
                 className="text-sm font-medium text-blue-600 hover:underline"
               >
-                Sign upt
+                Sign up
               </Link>
             </div>
           </form>
