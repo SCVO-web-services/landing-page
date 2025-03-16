@@ -29,3 +29,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.card {
+  min-height: 450px; /* o el valor que desees */
+}

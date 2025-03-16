@@ -15,6 +15,7 @@ import { useRouter } from 'next/router'; // Import the useRouter hook
  * @property {string[]} learningPoints - The learning points of the course.
  */
 interface CourseCardProps {
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -29,6 +30,7 @@ interface CourseCardProps {
  * @returns {JSX.Element} The rendered component.
  */
 function CourseCard({
+  id,
   title,
   description,
   imageUrl,
@@ -39,7 +41,7 @@ function CourseCard({
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/login');
+    router.push(`/cursos/${id}`);
   };
 
   const truncatedLearningPoints =
@@ -48,11 +50,12 @@ function CourseCard({
   return (
     <div className="p-4 w-full sm:w-1/2 lg:w-1/4">
       <div
-        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer"
+        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer flex flex-col 
+  min-h-[420px] sm:min-h-[440px] md:min-h-[460px] lg:min-h-[480px]"
         onClick={handleClick}
       >
         <div className="relative flex justify-center mb-2">
-          <div className="w-full h-48 bg-gray-200 rounded overflow-hidden">
+          <div className="w-full aspect-[16/9] bg-gray-200 rounded overflow-hidden">
             <Image
               src={imageUrl}
               alt={title}
@@ -65,12 +68,16 @@ function CourseCard({
             </div>
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 text-center text-black">
-          {description}
-        </h3>
-        <p className="text-gray-700 text-center">
-          <strong>Lo que aprenderás:</strong> {truncatedLearningPoints}
-        </p>
+
+        <div className="flex-grow flex flex-col">
+          <h3 className="text-xl font-bold mb-2 text-center text-black">
+            {description}
+          </h3>
+          <p className="text-gray-700 text-center">
+            <strong>Lo que aprenderás:</strong> {truncatedLearningPoints}
+          </p>
+        </div>
+
         <div className="mt-4 text-center text-blue-900">
           <p>{schedule}</p>
           <p>{level}</p>
@@ -92,6 +99,7 @@ export default function CoursesPage() {
         <div className="flex flex-wrap justify-center mt-8 mb-8">
           {courses.map((course, index) => (
             <CourseCard
+              id={course.id}
               key={index}
               title={course.title}
               description={course.description}

@@ -35,11 +35,6 @@ const CustomNavbar = () => {
         <NavbarItem className="hidden lg:flex">
           <Link href="/login">Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/signin" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
       </NavbarContent>
     </Navbar>
   );
