@@ -3,6 +3,7 @@ import Footer from '../components/Footer'; // Import the Footer component
 import Image from 'next/image'; // Import the Image component
 import courses from '../data/courses.json'; // Import the courses data
 import { useRouter } from 'next/router'; // Import the useRouter hook
+import { basePath } from '../next.config'; // Import the basePath
 
 /**
  * Props for the CourseCard component.
@@ -29,13 +30,13 @@ interface CourseCardProps {
  * @returns {JSX.Element} The rendered component.
  */
 function CourseCard({
-  title,
-  description,
-  imageUrl,
-  schedule,
-  level,
-  learningPoints,
-}: CourseCardProps) {
+                      title,
+                      description,
+                      imageUrl,
+                      schedule,
+                      level,
+                      learningPoints,
+                    }: CourseCardProps) {
   const router = useRouter();
 
   const handleClick = () => {
@@ -54,7 +55,7 @@ function CourseCard({
         <div className="relative flex justify-center mb-2">
           <div className="w-full h-48 bg-gray-200 rounded overflow-hidden">
             <Image
-              src={imageUrl}
+              src={`${basePath}${imageUrl}`}
               alt={title}
               className="w-full h-full object-cover"
               width={384}
