@@ -6,6 +6,7 @@ import {
   Link,
   Button,
 } from '@nextui-org/react';
+import NextLink from 'next/link';
 
 /**
  * Componente de barra de navegación personalizada.
@@ -19,22 +20,33 @@ const CustomNavbar = () => {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
         <NavbarItem isActive>
-          <Link href="/">Home</Link>
+          <NextLink href="/" passHref>
+            <Link>Home</Link>
+          </NextLink>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/memorial">Memorial</Link>
+          <NextLink href="/memorial" passHref>
+            <Link>Memorial</Link>
+          </NextLink>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/courses">Cursos</Link> {/* Enlace actualizado */}
+          <NextLink href="/courses" passHref>
+            <Link>Cursos</Link>
+          </NextLink>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/organigrama">Organigrama</Link>
+          <NextLink href="/organigrama" passHref>
+            <Link>Organigrama</Link>
+          </NextLink>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
+          <NextLink href="/login" passHref>
+            <Link>Login</Link>
+          </NextLink>
         </NavbarItem>
+
       </NavbarContent>
     </Navbar>
   );

@@ -9,6 +9,7 @@ import courses from '../data/courses.json';
 import { obtenerNoticias } from '../utils/api';
 import TarjetaNoticia from '../components/TarjetaNoticia';
 import { Noticia } from '../types/noticia';
+import { basePath } from '../next.config';
 
 /**
  * Props para el componente CourseCard.
@@ -41,7 +42,7 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
     <div className="p-4 w-full">
       <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
         <Image
-          src={imageUrl}
+          src={`${basePath}${imageUrl}`}
           alt={title}
           className="w-full h-48 object-cover mb-2 rounded-lg"
           width={500}
@@ -156,7 +157,7 @@ export default function IndexPage() {
                       id={course.id}
                       title={course.title}
                       description={course.description}
-                      imageUrl={course.imageUrl}
+                      imageUrl={`${basePath}${course.imageUrl}`}
                     />
                   </div>
                 ))}
