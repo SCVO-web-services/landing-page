@@ -46,13 +46,7 @@ const CustomNavbar = () => {
             <Link>Login</Link>
           </NextLink>
         </NavbarItem>
-        <NavbarItem>
-          <NextLink href="/signin" passHref>
-            <Button as={Link} color="primary" variant="flat">
-              Sign Up
-            </Button>
-          </NextLink>
-        </NavbarItem>
+
       </NavbarContent>
     </Navbar>
   );
