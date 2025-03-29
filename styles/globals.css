@@ -15,12 +15,44 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+/* boton del registrate con nosotros*/
 .gradient-button {
   background: linear-gradient(to right, purple, blue);
   border: none;
 }
 
-body {
+/* cambiar color de los enlaches
+.navbar-link { 
+  color: #ff0000; 
+}*/
+
+/* Si quieres un efecto hover: */
+/*.navbar-link:hover {
+  color: #cc0000;
+}*/
+
+/* barra de navegacion*/
+/* .bg-background\/70 {
+  background-color: hsl(var(--nextui-background) / 0.7);
+} */
+
+/* background de la pagina*/
+/*.bg-background {
+  --tw-bg-opacity: 1;
+  background-color: hsl(
+    var(--nextui-background) /
+      var(--nextui-background-opacity, var(--tw-bg-opacity))
+  );
+}*/
+
+/* footer */
+/* .bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+} */
+
+.min-h-scree body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -28,8 +60,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-.card {
-  min-height: 450px; /* o el valor que desees */
 }
