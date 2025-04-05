@@ -30,15 +30,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* cambiar color de los enlaches
-.navbar-link { 
-  color: #ff0000; 
-}*/
+.navbar-link {
+  color: #1ef30a;
+}
 
 /* Si quieres un efecto hover: */
-/*.navbar-link:hover {
-  color: #cc0000;
-}*/
+.navbar-link:hover {
+  color: #2e8307;
+}
 
 /* barra de navegacion*/
 /* .bg-background\/70 {
@@ -46,13 +45,11 @@ body {
 } */
 
 /* background de la pagina*/
-/*.bg-background {
+.bg-background {
+  color: black;
   --tw-bg-opacity: 1;
-  background-color: hsl(
-    var(--nextui-background) /
-      var(--nextui-background-opacity, var(--tw-bg-opacity))
-  );
-}*/
+  background-color: white;
+}
 
 /* footer */
 /* .bg-gray-800 {

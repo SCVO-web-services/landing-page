@@ -19,7 +19,9 @@ const CustomNavbar = () => {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
         <NavbarItem isActive>
-          <Link href="/">Home</Link>
+          <Link href="/" className="navbar-link">
+            Home
+          </Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="/memorial">Memorial</Link>
