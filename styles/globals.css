@@ -30,14 +30,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.navbar-link {
+/* .navbar-link {
   color: #1ef30a;
-}
+} */
 
 /* Si quieres un efecto hover: */
-.navbar-link:hover {
+/* .navbar-link:hover {
   color: #2e8307;
-}
+} */
 
 /* barra de navegacion*/
 /* .bg-background\/70 {
@@ -45,11 +45,11 @@ body {
 } */
 
 /* background de la pagina*/
-.bg-background {
+/* .bg-background {
   color: black;
   --tw-bg-opacity: 1;
   background-color: white;
-}
+} */
 
 /* footer */
 /* .bg-gray-800 {
@@ -58,5 +58,70 @@ body {
 } */
 
 .card {
-  min-height: 450px; /* o el valor que desees */
+  min-height: 450px;
+}
+.org-container {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.org-tree,
+.org-tree ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.org-tree {
+  display: table;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.org-tree ul {
+  display: table-row;
+}
+
+.org-tree li {
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+  padding: 1rem 2rem 2rem;
+}
+
+.org-tree li::before,
+.org-tree li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 0;
+  border-top: 1px solid #ccc;
+}
+
+.org-tree li::before {
+  left: 0;
+}
+.org-tree li::after {
+  right: 0;
+}
+
+.org-tree li:only-child::before,
+.org-tree li:only-child::after,
+.org-tree li:first-child::before,
+.org-tree li:last-child::after {
+  display: none;
+}
+
+.org-tree li > ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1rem;
+  background: #ccc;
 }

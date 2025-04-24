@@ -34,9 +34,9 @@ const CustomNavbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+        {/* <NavbarItem className="hidden lg:flex">
           <Link href="/login">Login</Link>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
     </Navbar>
   );
