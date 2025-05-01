@@ -5,52 +5,52 @@ import { Button, Link } from '@nextui-org/react';
 import Image from 'next/image';
 import CustomNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import courses from '../data/courses.json';
 import { obtenerNoticias } from '../utils/api';
 import TarjetaNoticia from '../components/TarjetaNoticia';
 import { Noticia } from '../types/noticia';
-import { basePath } from '../next.config';
 
-/**
- * Props para el componente CourseCard.
- * @typedef {Object} CourseCardProps
- * @property {string} title - El título del curso.
- * @property {string} description - La descripción del curso.
- * @property {string} imageUrl - La URL de la imagen del curso.
- * @property {string} id - El ID del curso.
- */
 interface CourseCardProps {
+  id: string;
   title: string;
   description: string;
-  imageUrl: string;
-  id: string;
+  image: string;
+  maxDescriptionLength?: number;
 }
 
-/**
- * Componente para mostrar una tarjeta de curso.
- * @param {CourseCardProps} props - Los props para el componente.
- * @returns {JSX.Element} El componente renderizado.
- */
-function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
+function CourseCard({ title, description, image, id, maxDescriptionLength = 100 }: CourseCardProps) {
   const router = useRouter();
 
   const handleViewMore = () => {
     router.push(`/cursos/${id}`);
   };
 
+  const truncatedDescription = description.length > maxDescriptionLength
+    ? description.slice(0, maxDescriptionLength) + '...'
+    : description;
+
   return (
     <div className="p-4 w-full">
-      <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
-        <Image
-          src={`${basePath}${imageUrl}`}
-          alt={title}
-          className="w-full h-48 object-cover mb-2 rounded-lg"
-          width={500}
-          height={300}
-        />
-        <h3 className="text-3xl font-bold mb-4">{title}</h3>
-        <p className="text-gray-700 mb-6 font-bold">{description}</p>
-        <div className="flex justify-between">
+      <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 h-[550px] flex flex-col">
+        <div className="relative w-full h-48 mb-2 rounded-lg bg-gray-200">
+          {image ? (
+            <Image
+              src={image.startsWith('data:image') ? image : `data:image/jpeg;base64,${image}`}
+              alt={title}
+              className="w-full h-full object-cover rounded-lg"
+              width={500}
+              height={300}
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 text-xl font-semibold">
+              Imagen no disponible
+            </div>
+          )}
+        </div>
+        <h3 className="text-3xl font-bold mb-4 text-center text-black flex-grow">{title}</h3>
+        <p className="text-gray-700 mb-6 font-bold text-center flex-grow">
+          {truncatedDescription}
+        </p>
+        <div className="flex justify-between mt-auto">
           <Button color="primary" onClick={handleViewMore}>
             Ver más
           </Button>
@@ -61,24 +61,22 @@ function CourseCard({ title, description, imageUrl, id }: CourseCardProps) {
   );
 }
 
-/**
- * Página principal de la aplicación.
- * @returns {JSX.Element} El componente renderizado.
- */
 export default function IndexPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [courses, setCourses] = useState<CourseCardProps[]>([]);
   const [noticias, setNoticias] = useState<Noticia[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === courses.length - 3 ? 0 : prevIndex + 1,
+      prevIndex === courses.length - 3 ? 0 : prevIndex + 1
     );
-  }, []);
+  }, [courses.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? courses.length - 3 : prevIndex - 1,
+      prevIndex === 0 ? courses.length - 3 : prevIndex - 1
     );
   };
 
@@ -87,11 +85,18 @@ export default function IndexPage() {
   };
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | number;
+    setIsMounted(true);
+    let interval: NodeJS.Timeout | null = null;
+
     if (isPlaying) {
       interval = setInterval(nextSlide, 3000);
     }
-    return () => clearInterval(interval);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, [isPlaying, nextSlide]);
 
   useEffect(() => {
@@ -101,6 +106,29 @@ export default function IndexPage() {
     };
     fetchNoticias();
   }, []);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch('http://localhost:8000/api/courses/');
+        const data = await res.json();
+        const mappedCourses = data.map((course: any) => ({
+          id: course.obj_id,
+          title: course.title,
+          description: course.description,
+          image: course.image || null,
+        }));
+        setCourses(mappedCourses);
+      } catch (error) {
+        console.error('Error cargando cursos:', error);
+      }
+    };
+    fetchCourses();
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>
@@ -129,6 +157,8 @@ export default function IndexPage() {
             </Button>
           </div>
         </div>
+
+        {/* Noticias */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold mb-6">Últimas Noticias</h1>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -137,6 +167,8 @@ export default function IndexPage() {
             ))}
           </div>
         </div>
+
+        {/* Carrusel de cursos */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="relative">
             <div className="overflow-hidden">
@@ -157,32 +189,36 @@ export default function IndexPage() {
                       id={course.id}
                       title={course.title}
                       description={course.description}
-                      imageUrl={`${basePath}${course.imageUrl}`}
+                      image={course.image}
+                      maxDescriptionLength={100} // Recorte aquí
                     />
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Botón anterior */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
               aria-label="Previous slide"
             >
               <FiChevronLeft className="w-6 h-6 text-gray-800" />
             </button>
 
+            {/* Botón siguiente */}
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
               aria-label="Next slide"
             >
               <FiChevronRight className="w-6 h-6 text-gray-800" />
             </button>
 
+            {/* Botón de autoplay */}
             <button
               onClick={toggleAutoplay}
-              className="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
               aria-label={isPlaying ? 'Pause autoplay' : 'Start autoplay'}
             >
               {isPlaying ? (
