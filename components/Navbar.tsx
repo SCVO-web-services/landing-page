@@ -1,23 +1,40 @@
+// components/CustomNavbar.tsx
+'use client';
+
 import {
   NavbarBrand,
   Navbar,
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
 } from '@nextui-org/react';
+import Image from 'next/image';
+import { ThemeToggle } from './ThemeToggle';
 
-/**
- * Componente de barra de navegación personalizada.
- * @returns {JSX.Element} El componente de barra de navegación renderizado.
- */
 const CustomNavbar = () => {
   return (
     <Navbar position="static">
       <NavbarBrand>
-        <p className="font-bold text-inherit">SCVO</p>
+        <Link href="/">
+          {/* Logo para light (se oculta en dark) */}
+          <Image
+            src="/pictures/logo.png"
+            alt="Logo SCVO"
+            width={60}
+            height={60}
+            className="block dark:hidden cursor-pointer"
+          />
+          {/* Logo para dark (se muestra sólo en dark) */}
+          <Image
+            src="/pictures/logo-dark.png"
+            alt="Logo SCVO (oscuro)"
+            width={60}
+            height={60}
+            className="hidden dark:block cursor-pointer"
+          />
+        </Link>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-10" justify={'center'}>
+      <NavbarContent className="hidden sm:flex gap-10" justify="center">
         <NavbarItem isActive>
           <Link href="/" className="navbar-link">
             Home
@@ -27,16 +44,16 @@ const CustomNavbar = () => {
           <Link href="/memorial">Memorial</Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/courses">Cursos</Link> {/* Enlace actualizado */}
+          <Link href="/courses">Cursos</Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="/organigrama">Organigrama</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {/* <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
-        </NavbarItem> */}
+        <NavbarItem>
+          <ThemeToggle /> {/* <-- Aquí va el toggle */}
+        </NavbarItem>
       </NavbarContent>
     </Navbar>
   );
