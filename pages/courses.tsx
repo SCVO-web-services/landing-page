@@ -64,7 +64,7 @@ function CourseCard({
               height={192}
             />
             <div className="absolute top-2 right-2 bg-white border border-black text-black font-bold px-2 py-1 rounded">
-              Free
+              Gratis
             </div>
           </div>
         </div>

@@ -2,9 +2,9 @@
   {
     "id": "1",
     "title": "Curso 1",
-    "description": "La obecidad en Venezuela",
+    "description": "La obesidad en Venezuela",
     "imageUrl": "/pictures/1.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Un curso sobre obesidad, qué es la obesidad, cómo se diagnostica, las causas y consecuencias de la obesidad, y los métodos de tratamiento y prevención.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -12,16 +12,16 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Definición y clasificación: El curso puede explicar lo que es la obesidad, cómo se define y cómo se clasifica según la gravedad.",
+      "Causas y factores de riesgo: Explorará las causas multifactoriales de la obesidad, incluyendo factores genéticos, ambientales, de estilo de vida y sociales.",
+      "Complicaciones: Presentará las posibles complicaciones de la obesidad, tanto a corto como a largo plazo.",
+      "Prevención y tratamiento: Ofrecerá estrategias para prevenir y tratar la obesidad, incluyendo cambios en el estilo de vida, dietas, ejercicio físico y, en algunos casos, tratamientos farmacológicos o quirúrgicos."
     ]
   },
   {
     "id": "2",
     "title": "Curso 2",
-    "description": "Nutricion en niños",
+    "description": "Nutrición en niños",
     "imageUrl": "/pictures/2.jpg",
     "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "details": [
@@ -40,7 +40,7 @@
   {
     "id": "3",
     "title": "Curso 3",
-    "description": "Como bajar de peso en 32 años",
+    "description": "Como mantener el peso ideal",
     "imageUrl": "/pictures/3.jpg",
     "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "details": [
@@ -59,7 +59,7 @@
   {
     "id": "4",
     "title": "Curso 4",
-    "description": "La obesidad morbida y la diabetes",
+    "description": "Consecuencias físicas de la obesidad",
     "imageUrl": "/pictures/4.jpg",
     "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "details": [
@@ -78,7 +78,7 @@
   {
     "id": "5",
     "title": "Curso 5",
-    "description": "Correlacion directa entre las cachapas y los infartos",
+    "description": "Como la obesidad afecta la mentalidad del paciente",
     "imageUrl": "/pictures/5.jpg",
     "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "details": [
@@ -97,7 +97,7 @@
   {
     "id": "6",
     "title": "Curso 6",
-    "description": "Como comer mas comiendo menos",
+    "description": "Consecuencias físicas de la obesidad",
     "imageUrl": "/pictures/6.jpg",
     "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "details": [
