@@ -65,13 +65,15 @@ function CourseCard({ id, title, description, image, syllabus }: CourseCardProps
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState<CourseCardProps[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  // Aseguramos que el contenido dinámico solo se cargue en el cliente
   useEffect(() => {
     const fetchCourses = async () => {
       try {
         const res = await fetch('http://localhost:8000/api/courses/');
         const data = await res.json();
-  
+
         // Renombrar obj_id a id
         const formattedData = data.map((course: any) => ({
           id: course.obj_id,
@@ -80,16 +82,21 @@ export default function CoursesPage() {
           image: course.image,
           syllabus: course.syllabus,
         }));
-  
+
         setCourses(formattedData);
       } catch (error) {
         console.error("Error cargando cursos:", error);
+      } finally {
+        setLoading(false);  // Cambiar el estado de carga cuando se haya completado
       }
     };
-  
+
     fetchCourses();
   }, []);
-  
+
+  if (loading) {
+    return <div>Loading...</div>; // Muestra un mensaje de carga mientras se obtienen los cursos
+  }
 
   return (
     <>

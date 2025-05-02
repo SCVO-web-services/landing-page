@@ -68,17 +68,26 @@ export default function IndexPage() {
   const [noticias, setNoticias] = useState<Noticia[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
+  // Hacer desplazamiento cíclico
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === courses.length - 3 ? 0 : prevIndex + 1
-    );
+    if (courses.length > 3) {
+      setCurrentIndex((prevIndex) => {
+        const maxIndex = courses.length - 3;
+        return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+      });
+    }
   }, [courses.length]);
+  
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? courses.length - 3 : prevIndex - 1
-    );
+    if (courses.length > 3) {
+      setCurrentIndex((prevIndex) => {
+        const maxIndex = courses.length - 3;
+        return prevIndex <= 0 ? maxIndex : prevIndex - 1;
+      });
+    }
   };
+  
 
   const toggleAutoplay = () => {
     setIsPlaying(!isPlaying);
@@ -88,8 +97,8 @@ export default function IndexPage() {
     setIsMounted(true);
     let interval: NodeJS.Timeout | null = null;
 
-    if (isPlaying) {
-      interval = setInterval(nextSlide, 3000);
+    if (isPlaying && courses.length > 3) {
+      interval = setInterval(nextSlide, 3000); // Solo inicia autoplay si hay más de un curso
     }
 
     return () => {
@@ -97,7 +106,7 @@ export default function IndexPage() {
         clearInterval(interval);
       }
     };
-  }, [isPlaying, nextSlide]);
+  }, [isPlaying, nextSlide, courses.length]);
 
   useEffect(() => {
     const fetchNoticias = async () => {
@@ -190,7 +199,7 @@ export default function IndexPage() {
                       title={course.title}
                       description={course.description}
                       image={course.image}
-                      maxDescriptionLength={100} // Recorte aquí
+                      maxDescriptionLength={150} // Recorte aquí
                     />
                   </div>
                 ))}
