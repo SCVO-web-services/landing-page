@@ -30,7 +30,7 @@ function CourseCard({ title, description, image, id, maxDescriptionLength = 100 
 
   return (
     <div className="p-4 w-full">
-      <div className="bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 h-[550px] flex flex-col">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 h-[550px] flex flex-col">
         <div className="relative w-full h-48 mb-2 rounded-lg bg-gray-200">
           {image ? (
             <Image
@@ -46,15 +46,17 @@ function CourseCard({ title, description, image, id, maxDescriptionLength = 100 
             </div>
           )}
         </div>
-        <h3 className="text-3xl font-bold mb-4 text-center text-black flex-grow">{title}</h3>
-        <p className="text-gray-700 mb-6 font-bold text-center flex-grow">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-center text-black break-words">{title}</h3>
+        <p className="text-gray-700 mb-6 font-medium text-center break-words flex-grow">
           {truncatedDescription}
         </p>
-        <div className="flex justify-between mt-auto">
-          <Button color="primary" onClick={handleViewMore}>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between mt-auto">
+          <Button color="primary" onClick={handleViewMore} className="w-full sm:w-auto text-sm sm:text-base">
             Ver más
           </Button>
-          <Button color="secondary">Inscribirse</Button>
+          <Button color="secondary" className="w-full sm:w-auto text-sm sm:text-base">
+            Inscribirse
+          </Button>
         </div>
       </div>
     </div>

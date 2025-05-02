@@ -20,7 +20,7 @@ function CourseCard({ id, title, description, image, syllabus }: CourseCardProps
   };
 
   const truncatedSyllabus =
-    syllabus && syllabus.length > 200 ? syllabus.slice(0, 200) + '...' : syllabus;
+    syllabus && syllabus.length > 300 ? syllabus.slice(0, 300) + '...' : syllabus;
 
   const truncatedDescription =
     description && description.length > 150 ? description.slice(0, 150) + '...' : description;
@@ -28,7 +28,7 @@ function CourseCard({ id, title, description, image, syllabus }: CourseCardProps
   return (
     <div className="p-4 flex justify-center">
       <div
-        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer flex flex-col h-[600px] text-center"
+        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer flex flex-col h-[600px] text-center w-full max-w-[340px] break-words"
         onClick={handleClick}
       >
         <div className="relative flex justify-center mb-2">
@@ -49,11 +49,11 @@ function CourseCard({ id, title, description, image, syllabus }: CourseCardProps
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center text-center">
-          <h3 className="text-xl font-bold text-black mb-2">{title}</h3>
-          <p className="text-gray-700 mb-4">{truncatedDescription}</p>
+        <div className="flex flex-col items-center text-center w-full">
+          <h3 className="text-lg sm:text-xl font-bold text-black mb-2 break-words">{title}</h3>
+          <p className="text-sm sm:text-base text-gray-700 mb-4 break-words">{truncatedDescription}</p>
           {truncatedSyllabus && (
-            <p className="text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 break-words">
               <strong>Lo que aprenderás:</strong> {truncatedSyllabus}
             </p>
           )}
@@ -67,14 +67,12 @@ export default function CoursesPage() {
   const [courses, setCourses] = useState<CourseCardProps[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Aseguramos que el contenido dinámico solo se cargue en el cliente
   useEffect(() => {
     const fetchCourses = async () => {
       try {
         const res = await fetch('http://localhost:8000/api/courses/');
         const data = await res.json();
 
-        // Renombrar obj_id a id
         const formattedData = data.map((course: any) => ({
           id: course.obj_id,
           title: course.title,
@@ -87,7 +85,7 @@ export default function CoursesPage() {
       } catch (error) {
         console.error("Error cargando cursos:", error);
       } finally {
-        setLoading(false);  // Cambiar el estado de carga cuando se haya completado
+        setLoading(false);
       }
     };
 
@@ -95,17 +93,28 @@ export default function CoursesPage() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Muestra un mensaje de carga mientras se obtienen los cursos
+    return <div>Loading...</div>;
   }
 
   return (
     <>
       <div className="container mx-auto">
         <CustomNavbar />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 mb-8">
-          {courses.map((course) => (
-            <CourseCard key={course.id} {...course} />
-          ))}
+        <div className="mt-8 mb-8 flex flex-col gap-6 items-center">
+          {Array.from({ length: Math.ceil(courses.length / 4) }).map((_, rowIndex) => {
+            const start = rowIndex * 4;
+            const rowCourses = courses.slice(start, start + 4);
+
+            return (
+              <div key={rowIndex} className="flex justify-center gap-4 flex-wrap">
+                {rowCourses.map((course) => (
+                  <div key={course.id} className="w-[360px] flex justify-center">
+                    <CourseCard {...course} />
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </div>
       <Footer />
