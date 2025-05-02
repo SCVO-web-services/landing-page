@@ -67,24 +67,21 @@ const CoursePage = ({ course }: CoursePageProps) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
-    const res = await fetch(`http://api:8000/api/courses/`);
+    const res = await fetch(`http://host.docker.internal:8000/api/courses/`);
     const courses = await res.json();
 
-    console.log("Cursos desde la API:", courses);
-    console.log("ID desde la URL:", params?.id);
 
     const courseData = courses.find(
       (course: { obj_id: number }) => course.obj_id === Number(params?.id)
     );
 
-    console.log("Curso encontrado:", courseData);
 
     if (!courseData) {
       return { props: { course: null } };
     }
 
     const course: Course = {
-      id: courseData.obj_id.toString(),
+      id: courseData.obj_id,
       title: courseData.title,
       description: courseData.description,
       image: courseData.image,
