@@ -1,19 +1,9 @@
-import CustomNavbar from '../components/Navbar'; // Import the Navbar component
-import Footer from '../components/Footer'; // Import the Footer component
-import Image from 'next/image'; // Import the Image component
-import courses from '../data/courses.json'; // Import the courses data
-import { useRouter } from 'next/router'; // Import the useRouter hook
+import CustomNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import courses from '../data/courses.json';
 
-/**
- * Props for the CourseCard component.
- * @typedef {Object} CourseCardProps
- * @property {string} title - The title of the course.
- * @property {string} description - The description of the course.
- * @property {string} imageUrl - The URL of the course image.
- * @property {string} schedule - The schedule of the course.
- * @property {string} level - The level of the course.
- * @property {string[]} learningPoints - The learning points of the course.
- */
 interface CourseCardProps {
   id: string;
   title: string;
@@ -24,11 +14,6 @@ interface CourseCardProps {
   learningPoints: string[];
 }
 
-/**
- * Component to display a course card.
- * @param {CourseCardProps} props - The props for the component.
- * @returns {JSX.Element} The rendered component.
- */
 function CourseCard({
   id,
   title,
@@ -39,23 +24,25 @@ function CourseCard({
   learningPoints,
 }: CourseCardProps) {
   const router = useRouter();
-
-  const handleClick = () => {
-    router.push(`/cursos/${id}`);
-  };
-
   const truncatedLearningPoints =
     learningPoints.slice(0, 2).join(' ').substring(0, 100) + '...';
 
   return (
     <div className="p-4 w-full sm:w-1/2 lg:w-1/4">
       <div
-        className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 cursor-pointer flex flex-col 
-  min-h-[420px] sm:min-h-[440px] md:min-h-[460px] lg:min-h-[480px]"
-        onClick={handleClick}
+        onClick={() => router.push(`/cursos/${id}`)}
+        className="
+          bg-white dark:bg-gray-800
+          shadow-lg dark:shadow-purple-900
+          rounded-lg p-4
+          hover:shadow-xl transform hover:scale-105
+          transition-all duration-300 cursor-pointer
+          flex flex-col
+          min-h-[420px] sm:min-h-[440px] md:min-h-[460px] lg:min-h-[480px]
+        "
       >
         <div className="relative flex justify-center mb-2">
-          <div className="w-full aspect-[16/9] bg-gray-200 rounded overflow-hidden">
+          <div className="w-full aspect-[16/9] bg-gray-200 dark:bg-gray-700 rounded overflow-hidden">
             <Image
               src={imageUrl}
               alt={title}
@@ -63,55 +50,68 @@ function CourseCard({
               width={384}
               height={192}
             />
-            <div className="absolute top-2 right-2 bg-white border border-black text-black font-bold px-2 py-1 rounded">
+            <div
+              className="
+                absolute top-2 right-2
+                bg-white dark:bg-gray-700
+                border border-black dark:border-white
+                text-black dark:text-white
+                font-bold px-2 py-1 rounded
+              "
+            >
               Gratis
             </div>
           </div>
         </div>
 
         <div className="flex-grow flex flex-col">
-          <h3 className="text-xl font-bold mb-2 text-center text-black">
+          <h3 className="text-xl font-bold mb-2 text-center text-black dark:text-gray-100">
             {description}
           </h3>
-          <p className="text-gray-700 text-center">
+          <p className="text-gray-700 dark:text-gray-300 text-center">
             <strong>Lo que aprenderás:</strong> {truncatedLearningPoints}
           </p>
         </div>
 
-        <div className="mt-4 text-center text-blue-900">
-          <p>{schedule}</p>
-          <p>{level}</p>
+        <div className="mt-4 text-center">
+          <p className="text-blue-900 dark:text-blue-300">{schedule}</p>
+          <p className="text-blue-900 dark:text-blue-300">{level}</p>
         </div>
       </div>
     </div>
   );
 }
 
-/**
- * The main component for the courses page.
- * @returns {JSX.Element} The rendered component.
- */
 export default function CoursesPage() {
   return (
     <>
-      <div className="container mx-auto">
-        <CustomNavbar /> {/* Use the Navbar component */}
-        <div className="flex flex-wrap justify-center mt-8 mb-8">
-          {courses.map((course, index) => (
-            <CourseCard
-              id={course.id}
-              key={index}
-              title={course.title}
-              description={course.description}
-              imageUrl={course.imageUrl}
-              schedule={course.details[2]} // Assuming the schedule is the third item in details
-              level={course.details[1]} // Assuming the level is the second item in details
-              learningPoints={course.learningPoints}
-            />
-          ))}
-        </div>
+      {/* Contenedor general adaptado a light/dark */}
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <CustomNavbar />
+
+        <main className="container mx-auto px-4 py-8">
+          <h1 className="text-4xl font-bold mb-6 text-center">
+            Nuestros Cursos
+          </h1>
+
+          <div className="flex flex-wrap justify-center -mx-4">
+            {courses.map((course) => (
+              <CourseCard
+                key={course.id}
+                id={course.id}
+                title={course.title}
+                description={course.description}
+                imageUrl={course.imageUrl}
+                schedule={course.details[2]}
+                level={course.details[1]}
+                learningPoints={course.learningPoints}
+              />
+            ))}
+          </div>
+        </main>
       </div>
-      <Footer /> {/* Use the Footer component */}
+
+      <Footer />
     </>
   );
 }
