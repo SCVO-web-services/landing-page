@@ -1,45 +1,39 @@
-import Link from 'next/link';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from './ui/card';
+// components/TarjetaNoticia.tsx
+'use client';
+
+import Image from 'next/image';
 import { Noticia } from '../types/noticia';
 
-/**
- * Props para el componente TarjetaNoticia.
- * @typedef {Object} TarjetaNoticiaProps
- * @property {Noticia} noticia - La noticia que se mostrará en la tarjeta.
- */
 interface TarjetaNoticiaProps {
   noticia: Noticia;
 }
 
-/**
- * Componente para mostrar una tarjeta de noticia.
- * @param {TarjetaNoticiaProps} props - Los props para el componente.
- * @returns {JSX.Element} El componente renderizado.
- */
 export default function TarjetaNoticia({ noticia }: TarjetaNoticiaProps) {
+  const { id, titulo, resumen, fecha, autor } = noticia;
+  // Usa id.jpg si existe, si no, cae a imagen.jpg
+  const imageSrc = `/pictures/noticias${id}.jpg`;
+
   return (
-    <Card className="mb-4">
-      <CardHeader>
-        <CardTitle>{noticia.titulo}</CardTitle>
-        <CardDescription>
-          {noticia.fecha} - {noticia.autor}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>{noticia.resumen}</p>
-        <Link
-          href={`/noticias/${noticia.id}`}
-          className="text-blue-500 hover:underline mt-2 inline-block"
-        >
-          Leer más
-        </Link>
-      </CardContent>
-    </Card>
+    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      {/* Imagen principal */}
+      <Image
+        src={imageSrc}
+        alt={titulo}
+        width={400}
+        height={200}
+        className="w-full h-48 object-cover"
+        // Si usas Next 13+ y tienes app router, quita priority si no es necesario
+      />
+
+      <div className="p-4">
+        <h3 className="text-xl font-bold mb-2 text-black dark:text-gray-100">
+          {titulo}
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{resumen}</p>
+        <div className="text-sm text-gray-500 dark:text-gray-400">
+          <span>{autor}</span> &middot; <span>{fecha}</span>
+        </div>
+      </div>
+    </div>
   );
 }

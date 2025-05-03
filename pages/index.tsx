@@ -98,8 +98,8 @@ export default function IndexPage() {
       <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Últimas Noticias</h1>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {noticias.map((n) => (
-            <TarjetaNoticia key={n.id} noticia={n} />
+          {noticias.map((noticia) => (
+            <TarjetaNoticia key={noticia.id} noticia={noticia} />
           ))}
         </div>
       </main>
