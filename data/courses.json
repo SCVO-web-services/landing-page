@@ -23,7 +23,7 @@
     "title": "Curso 2",
     "description": "Nutrición en niños",
     "imageUrl": "/pictures/2.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Un enfoque práctico y científico para entender las necesidades nutricionales de los niños, resolver dudas comunes y prevenir problemas como la obesidad.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -31,10 +31,11 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Fundamentos de la nutrición infantil: Que son los Macronutrientes y su rol en el crecimiento.",
+      "Alimentación por edades: Desde la lactancia hasta la adolescencia, con estrategias para cada fase.",
+      "Menús saludables: Cómo planificar comidas balanceadas, incluir alimentos locales y manejar alergias.",
+      "Conductas alimentarias: Técnicas para niños selectivos y fomentar la autonomía en la mesa.",
+      "Prevención de problemas: Obesidad, anemia, caries y trastornos alimentarios, con enfoque en bienestar emocional."
     ]
   },
   {
@@ -42,7 +43,7 @@
     "title": "Curso 3",
     "description": "Como mantener el peso ideal",
     "imageUrl": "/pictures/3.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Enseñar hábitos saludables y estrategias sostenibles para mantener un peso saludable a largo plazo, evitando dietas restrictivas o métodos extremos.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -50,10 +51,11 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Entiende tu peso ideal: ¿Qué es el peso ideal?, Diferencia entre perder peso y mantenerlo y Mitos comunes",
+      "Alimentación consciente y equilibrada: Principios de una dieta sostenible (variedad, moderación y nutrientes) y Manejo de porciones sin obsesionarse con contar calorías.",
+      "Actividad física como parte de la vida: Tipos de ejercicio (fuerza, resistencia, flexibilidad y su impacto en el metabolismo) y la importancia del movimiento no estructurado (ejemplo: caminar, subir escaleras, etc)",
+      "Manejo de emociones y hábitos no saludables: Comer emocional vs. comer por hambre física (identificar disparadores), Técnicas de mindfulness para evitar atracones y El papel del sueño y el estrés en la regulación del peso.",
+      "Estrategias para situaciones críticas: Prevención de recaídas (qué hacer si rompes la rutina) y El rol de la flexibilidad y la autocompasión."
     ]
   },
   {
@@ -61,7 +63,7 @@
     "title": "Curso 4",
     "description": "Consecuencias físicas de la obesidad",
     "imageUrl": "/pictures/4.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Educar sobre los riesgos físicos asociados a la obesidad, promoviendo la prevención y el manejo integral de esta condición mediante evidencia científica y casos prácticos.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -69,10 +71,12 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Introducción a la obesidad y su impacto global: Estadísticas globales y tendencias actuales. y Diferencia entre obesidad y sobrepeso: ¿por qué importa?",
+      "Sistema cardiovascular y metabólico: Hipertensión arterial (cómo la grasa visceral afecta la presión), Diabetes tipo 2 (resistencia a la insulina y su progresión), Dislipidemias (colesterol LDL elevado y triglicéridos) y Riesgo de infartos y accidentes cerebrovasculares.",
+      "Sistema musculoesquelético y movilidad: Artrosis (desgaste prematuro de articulaciones), Dolor lumbar y alteraciones posturales, Reducción de la capacidad física y fatiga crónica y Riesgo de fracturas por osteoporosis asociada a la obesidad.",
+      "Sistema respiratorio y sueño: Apnea del sueño (relación entre grasa cervical y bloqueo de vías aéreas), Asma y dificultad para respirar (hipoventilación obstructiva) y Reducción de la capacidad pulmonar y oxígeno en sangre.",
+      "Otros riesgos físicos y enfoque integral: Enfermedad hepática grasa no alcohólica (EHGNA), Riesgo aumentado de ciertos cánceres (mama, colon, endometrio), Problemas reproductivos y hormonales (infertilidad, síndrome de ovario poliquístico) y Impacto en la salud de los niños y adolescentes.",
+      "Prevención y manejo multidisciplinario: Enfoque integral (nutrición, ejercicio, salud mental y medicina), Tratamientos disponibles (dieta, farmacoterapia, cirugía bariátrica) y Rol de la familia y la sociedad en el apoyo al paciente."
     ]
   },
   {
@@ -80,7 +84,7 @@
     "title": "Curso 5",
     "description": "Como la obesidad afecta la mentalidad del paciente",
     "imageUrl": "/pictures/5.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Analizar el impacto psicológico y emocional de la obesidad, identificar patrones mentales asociados y proponer estrategias de apoyo integral para profesionales y pacientes.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -88,10 +92,9 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Introducción a la relación entre obesidad y salud mental: ¿Qué es la obesidad desde una perspectiva bio-psico-social?, Diferencia entre peso saludable y estigma social, y Estadísticas: (Prevalencia de trastornos mentales en personas con obesidad)",
+      "Autoestima, imagen corporal y trastornos alimentarios: istorsión de la imagen corporal y su relación con la dieta restrictiva, rastornos como la vigorexia, ortorexia y comer emocional, y El rol de los medios y redes sociales en la percepción del cuerpo ideal.",
+      "Ansiedad, depresión y aislamiento social: Obesidad y riesgo elevado de depresión y ansiedad, Discriminación por tamaño corporal (fatphobia) en entornos laborales, educativos y médicos, Aislamiento social y su impacto en la salud mental."
     ]
   },
   {
@@ -99,7 +102,7 @@
     "title": "Curso 6",
     "description": "Consecuencias físicas de la obesidad",
     "imageUrl": "/pictures/6.jpg",
-    "introDescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "introDescription": "Educar sobre los efectos fisiológicos de la obesidad en diferentes sistemas del cuerpo, promoviendo la prevención y el manejo integral a través de conocimientos científicamente validados.",
     "details": [
       "Certificado disponible",
       "Nivel introductorio",
@@ -107,10 +110,11 @@
       "Horario flexible"
     ],
     "learningPoints": [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+      "Obesidad como problema de salud pública: Definición y clasificación de la obesidad (IMC ≥ 30, grados I, II y III), Estadísticas globales y tendencias actuales (OMS, CDC)",
+      "Sistema cardiovascular y metabólico: Hipertensión arterial (aumento de la presión por exceso de volumen sanguíneo), Diabetes tipo 2 (resistencia a la insulina y daño pancreático), Dislipidemias (colesterol LDL elevado, triglicéridos y riesgo de aterosclerosis) y Riesgos (Riesgo de infartos, accidentes cerebrovasculares y enfermedad arterial periférica).",
+      "Sistema musculoesquelético y movilidad: Artrosis (desgaste prematuro de articulaciones), Dolor lumbar, Reducción de la capacidad física y fatiga crónica.",
+      "Prevención y manejo multidisciplinario: Enfoque integral (nutrición, ejercicio, salud mental y medicina), Tratamientos disponibles (dieta, farmacoterapia, cirugía bariátrica) y Rol de la familia y la sociedad en el apoyo al paciente."
     ]
   }
 ]
+
